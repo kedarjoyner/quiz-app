@@ -62,6 +62,7 @@ h1 {
 	font-family: 'Dosis', sans-serif;
 	font-weight: 800;
 	font-size: 2.5em;
+	letter-spacing: .05em;
 	text-transform: uppercase;
 	text-align: center;
 	margin-top: 50px;
@@ -75,19 +76,19 @@ h1 {
 	margin-top: -20px;
 }
 
-/* -- INPUTS AND FORMS -- */
+/* -- BUTTONS AND INPUTS -- */
 
 .dark-light-buttons {
 	text-align: center;
-	margin-top: 30px;
+	margin-top: 50px;
 }
 
 .choose-light {
 	margin-right: 20px;
 	width: 150px;
 	height: 150px;
-	background: #231F20;
-	outline: none;
+	background: #6DB045;
+	/*outline: none;*/
 	border: none;
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
@@ -97,21 +98,44 @@ h1 {
 .choose-dark {
 	width: 150px;
 	height: 150px;
-	background: #231F20;
-	outline: none;
+	background: #ED3044;
+	/*outline: none;*/
 	border: none;
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
 	border-radius: 50%;
 }
 
+.light-img {
+	margin: 0 auto;
+}
+
 
 .choose-light:hover {
-	background-color: #6DB045;
+	background-color: #5c7ee5;
 }
 
 .choose-dark:hover {
-	background-color: #ED3044;
+	background-color: #5c7ee5;
+}
+
+.start-wrap {
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: 20px;
+}
+
+.start-game {
+	background-color: #4e4b4c;
+	text-transform: uppercase;
+	color: white;
+	font-weight: 600;
+	padding: 12px 25px;
+	border: none;
+}
+
+.start-game:hover {
+	background-color: #5c7ee5;
 }
 
 
