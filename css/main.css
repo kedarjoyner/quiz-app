@@ -95,6 +95,10 @@ h1 {
 	border-radius: 50%;
 }
 
+.light-img {
+	text-align: center;
+}
+
 .choose-dark {
 	width: 150px;
 	height: 150px;
