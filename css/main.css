@@ -15,9 +15,9 @@
 
 /* -- GENERAL -- */
 
-/**, body {
+*, body {
 	border: 1px solid black;
-}*/
+}
 
 body {
 	font-family: 'Open Sans', sans-serif;
@@ -141,13 +141,15 @@ h1 {
 .options-wrap {
 	margin-top: 400px;
 	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 .option1, .option2, .option3, .option4 {
-	width: 100%;
-	height: 100px;
-	margin: 4px;
 	background-color: black;
+	flex: 2 0 100%;
+	height: 100px;
+	margin-top: 5px;
 }
 
 
