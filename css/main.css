@@ -139,7 +139,6 @@ h1 {
 }
 
 .options-wrap {
-	margin-top: 400px;
 	width: 100%;
 	  display: -webkit-flex;
 	display: flex;
@@ -147,11 +146,16 @@ h1 {
 	flex-flow: row wrap;
 	  -webkit-justify-content: center;
 	justify-content: center;
+	margin: 0 auto;
+	margin-top: 350px;
 }
 
 .option1, .option2, .option3, .option4 {
-	background-color: black;
-	width: 200px;
+	background-color: #E6E6E6;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 100px;
+	width: 35%;
 	height: 100px;
 	margin: 5px;
 }
