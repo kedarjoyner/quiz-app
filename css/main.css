@@ -140,16 +140,20 @@ h1 {
 
 .options-wrap {
 	margin-top: 400px;
+	width: 100%;
+	  display: -webkit-flex;
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+	  -webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	  -webkit-justify-content: center;
+	justify-content: center;
 }
 
 .option1, .option2, .option3, .option4 {
 	background-color: black;
-	flex: 2 0 100%;
+	width: 200px;
 	height: 100px;
-	margin-top: 5px;
+	margin: 5px;
 }
 
 
