@@ -90,6 +90,11 @@ h2 {
 	text-align: center;
 }
 
+h3 {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
 
 /* -- BUTTONS AND INPUTS -- */
 
@@ -154,8 +159,9 @@ h2 {
 	background-color: #5c7ee5;
 }
 
-.options-wrap {
+.options-wrap { /* add other browsers*/
 	width: 100%;
+	max-width: 1000px;
 	  display: -webkit-flex;
 	display: flex;
 	  -webkit-flex-flow: row wrap;
@@ -190,7 +196,6 @@ h2 {
 	.choose-light {
 		margin-left: 20px
 	}
-
 }
 
 @media only screen and (max-width: 380px) {
@@ -198,6 +203,14 @@ h2 {
 		width: 100%;
 	}
 	
+}
+
+@media only screen and (max-width: 720px) {
+	.options-wrap {
+		-webkit-flex-flow: column wrap;
+	flex-flow: column wrap;
+	 -webkit-align-items: center; align-items: center;
+	}
 }
 
 
