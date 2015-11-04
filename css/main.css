@@ -111,6 +111,7 @@ h3 {
 	background: #6DB045;
 	/*outline: none;*/
 	border: none;
+	outline: none;
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
 	border-radius: 50%;
@@ -124,7 +125,7 @@ h3 {
 	width: 150px;
 	height: 150px;
 	background: #ED3044;
-	/*outline: none;*/
+	outline: none;
 	border: none;
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
