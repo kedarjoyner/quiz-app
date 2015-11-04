@@ -47,7 +47,9 @@ html {
 
 }
 
+
 /* -- HEADER -- */
+
 
 .top-header {
 	position: fixed;
@@ -67,7 +69,9 @@ html {
 	margin-top: -20px;
 }
 
-/* -- FONT STYLING -- */
+
+/* -- FONT STYLINGS -- */
+
 
 h1 {
 	font-family: 'Dosis', sans-serif;
@@ -86,7 +90,9 @@ h2 {
 	text-align: center;
 }
 
+
 /* -- BUTTONS AND INPUTS -- */
+
 
 .dark-light-buttons {
 	text-align: center;
@@ -173,6 +179,7 @@ h2 {
 
 
 /* -- RESPONSIVE -- */
+
 
 @media only screen and (max-width: 411px) {
 	.choose-dark {
