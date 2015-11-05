@@ -7,6 +7,7 @@
 	  black: #231F20
 	  red: #ED3044
 	  green: #6DB045
+	  blue: #5c7ee5;
 	  
 	 font families:
 	   Open Sans
@@ -130,6 +131,10 @@ h3 {
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
 	border-radius: 50%;
+}
+
+.light-clicked, .dark-clicked {
+	background: #231F20;
 }
 
 

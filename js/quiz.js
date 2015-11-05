@@ -10,6 +10,8 @@ $(document).ready(function() {
 
 	$(".choose-light").click(function() {
 		button = "light";
+			//$(this).addClass("light-clicked");
+				$(".choose-dark").remove();
 	});
 	$(".choose-dark").click(function() {
 		button = "dark";
