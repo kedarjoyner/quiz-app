@@ -32,6 +32,10 @@ html {
 	box-sizing: border-box;
 }
 
+ul > li {
+	list-style: none;
+}
+
 .instructions {
 	position: relative;
 	margin: 0 auto;
@@ -197,6 +201,10 @@ h3 {
 	margin: 0 auto;
 	margin-top: 50px;
 	margin-bottom: 100px;
+}
+
+ul.options-wrap {
+	padding-left: 0;
 }
 
 .option1, .option2, .option3, .option4 {
