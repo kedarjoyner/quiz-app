@@ -1,35 +1,32 @@
-
-var button = "";
+	
+	var button = "";
 	var questionCurrent = 0;
 	var questionTotal = 10;
 
 $(document).ready(function() {
 
-	$(".questions").hide();
+	$(".light-questions").hide();
 
+	$(".choose-light").hover(function() { //when mouse hovers over light button, toggle
+		$(".light-img, .light-text").toggle();
+	});
+
+	$(".choose-dark").hover(function() { //when mouse hovers over dark button, toggle
+		$(".dark-img, .dark-text").toggle();
+	});
 
 	$(".choose-light").click(function() {
-		button = "light";
-			//$(this).addClass("light-clicked");
-				$(".choose-dark").remove();
+		showGame();
 	});
-	$(".choose-dark").click(function() {
-		button = "dark";
-	});	
 
-	$(".start-game").click(function() {
-		if (button === "light") {
-			showGame();
-			increaseCount();
-			//alert("You chose the light side!");
-		} else if (button === "dark") {
-			showGame();
-			//alert("You chose the dark side!");
-		} else {
-			alert("You need to choose a side!");
-		}
+	$(".choose-dark").click(function() {
+		showGame();
 	});
 });
+
+
+
+
 
 function showGame() {
 	$(".main").hide();

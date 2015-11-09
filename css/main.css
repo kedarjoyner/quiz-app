@@ -91,6 +91,15 @@ h2 {
 	text-align: center;
 }
 
+.light-text, .dark-text {
+	display: none;
+	text-transform: uppercase;
+	color: #ffffff;
+	font-weight: 600;
+	font-size: 1.5em;
+	text-align: center;
+}
+
 h3 {
 	text-align: center;
 	margin-bottom: 50px;
@@ -118,9 +127,10 @@ h3 {
 	border-radius: 50%;
 }
 
-.light-img {
+.light-img .dark-img {
 	text-align: center;
 }
+
 
 .choose-dark {
 	width: 150px;
@@ -140,6 +150,7 @@ h3 {
 
 .choose-light:hover {
 	background-color: #5c7ee5;
+
 }
 
 .choose-dark:hover {
