@@ -18,12 +18,15 @@ $(document).ready(function() {
 	$("button.choose-light").click(function() {
 		showGame();
 		$(".light-questions").show();
-		$(".light-sabers").hide()
+		$(".light-sabers").hide();
 		$(".playericon-light").slideToggle(300, "easeInQuint");
 	});
 
 	$("button.choose-dark").click(function() {
 		showGame();
+		$(".light-questions").show();
+		$(".light-sabers").hide();
+		$(".playericon-dark").slideToggle(300, "easeInQuint");
 	});
 });
 

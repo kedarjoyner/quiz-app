@@ -135,6 +135,7 @@ h3 {
 
 
 .choose-dark {
+	margin: 0 auto;
 	width: 150px;
 	height: 150px;
 	background: #ED3044;
