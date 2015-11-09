@@ -7,19 +7,22 @@ $(document).ready(function() {
 
 	$(".light-questions").hide();
 
-	$(".choose-light").hover(function() { //when mouse hovers over light button, toggle
+	$("button.choose-light").hover(function() { //when mouse hovers over light button, toggle
 		$(".light-img, .light-text").toggle();
 	});
 
-	$(".choose-dark").hover(function() { //when mouse hovers over dark button, toggle
+	$("button.choose-dark").hover(function() { //when mouse hovers over dark button, toggle
 		$(".dark-img, .dark-text").toggle();
 	});
 
-	$(".choose-light").click(function() {
+	$("button.choose-light").click(function() {
 		showGame();
+		$(".light-questions").show();
+		$(".light-sabers").hide()
+		$(".playericon-light").slideToggle(300, "easeInQuint");
 	});
 
-	$(".choose-dark").click(function() {
+	$("button.choose-dark").click(function() {
 		showGame();
 	});
 });
