@@ -118,7 +118,7 @@ h3 {
 .dark-light-buttons {
 	text-align: center;
 	margin-top: 50px;
-
+	border: 1px solid black;
 }
 
 .choose-light {
@@ -128,11 +128,11 @@ h3 {
 	background: #6DB045;
 	border: none;
 	outline: none;
+	vertical-align: top;
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
 	border-radius: 50%;
 }
-
 
 .choose-dark {
 	margin: 0 auto;
@@ -141,6 +141,7 @@ h3 {
 	background: #ED3044;
 	outline: none;
 	border: none;
+	vertical-align: top;
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
 	border-radius: 50%;
@@ -164,6 +165,7 @@ h3 {
 .choose-dark:hover {
 	background-color: #5c7ee5;
 }
+
 
 .start-wrap {
 	text-align: center;
