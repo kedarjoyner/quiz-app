@@ -210,12 +210,30 @@ ul.options-wrap {
 .option1, .option2, .option3, .option4 {
 	background-color: #E6E6E6;
 	text-align: center;
+	font-size: 1.2em;
+	color: #ffffff;
+	font-weight: 600;
 	vertical-align: middle;
 	line-height: 100px;
 	width: 35%;
 	height: 100px;
 	margin: 5px;
 }
+
+
+.options-light-background {
+	background-color: #6DB045;
+}
+
+.options-dark-background {
+	background-color: #ED3044;
+}
+
+.options-hover {
+	background-color: #5c7ee5;
+}
+
+
 
 
 /* -- RESPONSIVE -- */

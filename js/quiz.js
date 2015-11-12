@@ -6,7 +6,7 @@
 
 $(document).ready(function() {
 
-	$(".light-questions").hide();
+	$(".questions-wrap").hide();
 
 	$("button.choose-light").hover(function() { //when mouse hovers over light button, toggle
 		$(".light-img, .light-text").toggle();
@@ -18,19 +18,27 @@ $(document).ready(function() {
 
 	$("button.choose-light").click(function() { // when game starts, switch player icon to light
 		showGame();
-		$(".light-questions").show();
-		$(".light-sabers").hide();
-		$(".playericon-light").slideToggle(300, "easeInQuint");
-		updateQuestion(lightQuestions[0]);
+		$(".questions-wrap").show(); // show game
+		$(".light-sabers").hide(); //hide player icon
+		$(".playericon-light").slideToggle(300, "easeInQuint"); //change player icon to leah
+		$("li").addClass("options-light-background");
+		$("li").hover(function() {
+			$(this).toggleClass("options-hover");
+		});
+		updateQuestion(lightQuestions[0]); // question 1 from array 1
 	});
 
-	$("button.choose-dark").click(function() { // when game starts, switch player icon to dark
+
+	$("button.choose-dark").click(function() { 
 		showGame();
-		$(".light-questions").show();
+		$(".questions-wrap").show();
 		$(".light-sabers").hide();
 		$(".playericon-dark").slideToggle(300, "easeInQuint");
+		$("li").addClass("options-dark-background");
+		$("li").hover(function() {
+			$(this).toggleClass("options-hover");
+		});
 	});
-
 });
 
 function updateQuestion(currentQuestion) {
@@ -42,44 +50,21 @@ function updateQuestion(currentQuestion) {
 }
 
 
-function Question(question, answers, correct) {
+
+function QuestionAsk(question, answers, correct) {
 	this.question = question;
 	this.answers = answers;
 	this.correct = correct;
 }
 
 var lightQuestions = new Array();
-lightQuestions[0] = new Question("The Ewoks believe which character is God?", 
+lightQuestions[0] = new QuestionAsk("The Ewoks believe which character is God?", 
 		["C-3PO", "R2-D2", "Princess Leia", "Jar Jar Binks"], 0);
 
-lightQuestions[1] = new Question()
+lightQuestions[1] = new QuestionAsk()
 
 
 var darkQuestions = new Array();
-
-// var Question = function() {
-// 	this.question = "";
-// 	this.answer1 = {};
-// 	this.answer2 = {};
-// 	this.answer3 = {};
-// 	this.answer4 = {};	
-// };
-
-// var questionLight1 = new Question();
-
-// questionLight1.question = "The Ewoks believe which character is God?";
-// questionLight1.answer1.label = "C-3PO";
-// questionLight1.answer1.correct = true;
-
-// var questionsLight1 = {
-// question: "The Ewoks believe which character is God?",
-// answer1: "C-3PO",
-// answer2: "R2-D2",
-// answer3: "Princess Leia", 
-// answer4: "Jar Jar Binks",
-// correctAnswer: self.answer1
-// };
-
 
 
 
@@ -97,3 +82,8 @@ function increaseCount() {
 	questionCurrent++;
 	$("#question-current").text(questionCurrent);
 }
+
+
+
+
+
