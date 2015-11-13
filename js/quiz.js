@@ -21,13 +21,13 @@ $(document).ready(function() {
 		$(".questions-wrap").show(); // show game
 		$(".light-sabers").hide(); //hide player icon
 		$(".playericon-light").slideToggle(300, "easeInQuint"); //change player icon to leah
-		$("li").addClass("options-light-background");
-		$("li").hover(function() {
+		$("li").addClass("options-light-background"); // change color of list items
+		$("li").hover(function() { //change color of list items on hover
 			$(this).toggleClass("options-hover");
 		});
 		updateQuestion(lightQuestions[0]); // question 1 from array 1
+		increaseCount();
 	});
-
 
 	$("button.choose-dark").click(function() { 
 		showGame();
@@ -47,8 +47,8 @@ function updateQuestion(currentQuestion) {
 	$(".option2").text(currentQuestion.answers[1]);
 	$(".option3").text(currentQuestion.answers[2]);
 	$(".option4").text(currentQuestion.answers[3]);
-}
 
+}
 
 
 function QuestionAsk(question, answers, correct) {
@@ -61,21 +61,17 @@ var lightQuestions = new Array();
 lightQuestions[0] = new QuestionAsk("The Ewoks believe which character is God?", 
 		["C-3PO", "R2-D2", "Princess Leia", "Jar Jar Binks"], 0);
 
-lightQuestions[1] = new QuestionAsk()
+//lightQuestions[1] = new QuestionAsk();
+
+//var darkQuestions = new Array();
 
 
-var darkQuestions = new Array();
-
-
-
-
-// FUNCTIONS
-
+///// FUNCTIONS //////
 
 
 function showGame() {
 	$(".main").hide();
-	$(".light-questions").show();
+	$(".questions-wrap").show();
 }
 
 function increaseCount() {
@@ -83,6 +79,17 @@ function increaseCount() {
 	$("#question-current").text(questionCurrent);
 }
 
+function submitAnswer(lightQuestions) {
+	$("li").click(function() {
+		var userGuess = $(this).text();
+		console.log(userGuess);	
+		var currentQuestion = lightQuestions[questionCurrent];
+		if (userGuess  === currentQuestion.answers[currentQuestion.correct]) {
+			alert("Test!");
+		}
+	});		
+}
+submitAnswer();
 
 
 
