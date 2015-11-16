@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 
 
-/// -------> FUNCTION <------ ///
+// -------> FUNCTION <------ //
 
 
 function generateQuestion(currentQuestion) {
@@ -94,7 +94,7 @@ function submitAnswer(lightQuestions) {
 
 
 
-/// -------> LIGHT QUESTIONS <------ ///
+// -------> LIGHT QUESTIONS <------ //
 
 var lightQuestions = new Array();
 
@@ -116,6 +116,22 @@ lightQuestions[4] = new QuestionAsk("In 'Return of the Jedi', what does Princess
 
 lightQuestions[5] = new QuestionAsk("Which famous scientist’s eyes were Yoda’s based on?",
 		["Isaac Newton", "Sir Francis Bacon", "Albert Einstein", "Carl Sagan"], 2);
+
+lightQuestions[6] = new QuestionAsk("Which of these names belonged to an Ewok in the 1983’s Return of the Jedi?",
+		["Snootles", "Woola", "Nikta", "Teebo"], 3);
+
+lightQuestions[7] = new QuestionAsk("Who eventually had the honor of killing Jabba the Hutt?",
+		["Leia", "Han Solo", "Boba Fett", "Chewbacca"], 0);
+
+lightQuestions[8] = new QuestionAsk("When he was cast as Jedi Knight Mace Windu, Samuel L. Jackson’s special request was that his light saber was which color?", 
+		["White", "Purple", "Orange", "Yellow"], 1);
+
+lightQuestions[9] = new QuestionAsk("What is Jedi leader Obi-Wan Kenobi also known as?", 
+		["The Legend", "The Informant", "The Negotiator", "The Betrayer"], 2);
+
+// -------> DARK QUESTIONS <------ //
+
+
 
 
 
