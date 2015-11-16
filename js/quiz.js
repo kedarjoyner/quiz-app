@@ -54,7 +54,6 @@ $(document).ready(function() {
 
 
 
-
 // -------> FUNCTION <------ //
 
 
@@ -160,13 +159,33 @@ darkQuestions[0] = new QuestionAsk("In the Empire Strikes Back, what was the nam
 	["The Cave", "Echo Base", "Zone 12", "Man Hothma"], 1);
 
 darkQuestions[1] = new QuestionAsk("What are the two braids on Boba Fett’s shoulder from?", 
-	["The Cave", "Zone 12", "Echo Base", "Man Hothma"], 2);
+	["Wookie Scalps", "Jedi Padawans", "Wampa Scalps", "Both Wookie and Wampa Scalps"], 0);
 
 darkQuestions[2] = new QuestionAsk("In Episode III: Revenge of the Sith, who was the dark lord of the Sith that allegedly was able to save people from death?", 
 	["Darth Tyrannus", "Darth Vader", "Darth Sidious", "Darth Plageuis"], 3);
 
 darkQuestions[3] = new QuestionAsk("In Return of the Jedi, what are the first words Jabba the Hutt says?", 
-	[“I told you not to admit him!”, “A Jedi.”, “You weak-minded fool! He’s using an old Jedi mind trick.”, “Han Solo…”], 2);
+	["I told you not to admit him!", "A Jedi.", "You weak-minded fool! He’s using an old Jedi mind trick.", "Han Solo…"], 2);
+
+darkQuestions[4] = new QuestionAsk("What group kidnapped Anakin Skywalker’s mother and later caused trouble for Luke Skywalker?", 
+	["The Sith", "The Jawas", "The Sand People", "Ewoks"], 2);
+
+darkQuestions[5] = new QuestionAsk("How old was Darth Vader when he turned to the dark side?", 
+	["19", "32", "40", "21"], 3);
+
+darkQuestions[6] = new QuestionAsk("In The Phantom Menace, which Jedi Knight did Darth Maul kill?", 
+	["Qui-Gon Jinn", "Mace Windu", "Ki-Adi-Mundi", "Saesee Tin"], 0);
+
+darkQuestions[7] = new QuestionAsk("What does AT-AT stand for?", 
+	["Automotive Transport Attack Tank", "Attack Terrain Armoured Transport", "All Terrain Armoured Transport", "All Turtles Attack Tacos"], 0);
+
+darkQuestions[8] = new QuestionAsk("Who was the first Dark Side users?", 
+	["The Sith", "The Celestials", "The Brotherhood of Darkness", "The Coulmi"], 1);
+
+darkQuestions[9] = new QuestionAsk("Who cut off Anakin Skywalker’s arm during a fight?", 
+	["The Rodian Assassin", "Count Dooku", "Palpatine", "Jango Fett"], 1);
+
+
 
 
 
