@@ -189,6 +189,10 @@ h3 {
 	background-color: #5c7ee5;
 }
 
+.questions-wrap {
+	display: none;
+}
+
 .options-wrap { /* add other browsers*/
 	width: 100%;
 	max-width: 1000px;

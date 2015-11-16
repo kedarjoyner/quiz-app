@@ -19,7 +19,6 @@ $(document).ready(function() {
 
 	$("button.choose-light").click(function() { // when game starts, switch player icon to light
 		showGame();
-		$(".questions-wrap").show(); // show game
 		$(".light-sabers").hide(); //hide player icon
 		$(".playericon-light").slideToggle(300, "easeInQuint"); //change player icon to leah
 		$("li").addClass("options-light-background"); // change color of list items
@@ -68,7 +67,8 @@ function QuestionAsk(question, answers, correct) { // objects that hold question
 
 
 function showGame() { 
-	$("div.main").fadeOut(400); // fade game in
+	$("div.main").fadeOut(400);
+	$(".questions-wrap").fadeIn(600); // fade game in
 }
 
 function increaseCount() { // track current question out of 10 total
@@ -84,7 +84,7 @@ function submitAnswer(lightQuestions) {
 		if (userGuess !== currentQuestion.answers[currentQuestion.correct]) {
 			console.log(trackQuestion);
 			increaseCount();
-			$(".questions-wrap").fadeOut(300).fadeIn(600);
+			$(".questions-wrap").hide().fadeIn(600);
 			generateQuestion(lightQuestions[trackQuestion]);
 		}
 	});		
