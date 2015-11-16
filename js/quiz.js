@@ -9,23 +9,31 @@ $(document).ready(function() {
 
 	$(".questions-wrap").hide();
 
-	$("button.choose-light").hover(function() { //when mouse hovers over light button, toggle
+	$("button.choose-light").hover(function() { 
+	//when mouse hovers over light button, toggle
 		$(".light-img, .light-text").toggle();
 	});
 
-	$("button.choose-dark").hover(function() { //when mouse hovers over dark button, toggle
+	$("button.choose-dark").hover(function() { 
+	//when mouse hovers over dark button, toggle
 		$(".dark-img, .dark-text").toggle();
 	});
 
-	$("button.choose-light").click(function() { // when game starts, switch player icon to light
+	$("button.choose-light").click(function() { 
+	// when game starts, switch player icon to light
 		showGame();
-		$(".light-sabers").hide(); //hide player icon
-		$(".playericon-light").slideToggle(300, "easeInQuint"); //change player icon to leah
-		$("li").addClass("options-light-background"); // change color of list items
-		$("li").hover(function() { //change color of list items on hover
+		$(".light-sabers").hide(); 
+		//hide player icon
+		$(".playericon-light").slideToggle(300, "easeInQuint"); 
+		//change player icon to leah
+		$("li").addClass("options-light-background"); 
+		// change color of list items
+		$("li").hover(function() { 
+		//change color of list items on hover
 			$(this).toggleClass("options-hover");
 		});
-		generateQuestion(lightQuestions[0]); // question 1 from array 1
+		generateQuestion(lightQuestions[0]); 
+		// question 1 from array 1
 		submitAnswer(lightQuestions);
 	});
 
@@ -38,6 +46,8 @@ $(document).ready(function() {
 		$("li").hover(function() {
 			$(this).toggleClass("options-hover");
 		});
+		generateQuestion(darkQuestions[0]);
+		submitAnswer(darkQuestions);
 	});
 });
 
@@ -48,8 +58,8 @@ $(document).ready(function() {
 // -------> FUNCTION <------ //
 
 
-function generateQuestion(currentQuestion) { // shows new questions
-	//$(".questions-wrap").fadeIn(600);
+function generateQuestion(currentQuestion) { 
+// shows new questions
 	$(".question").text(currentQuestion.question);
 	$(".option1").text(currentQuestion.answers[0]);
 	$(".option2").text(currentQuestion.answers[1]);
@@ -58,7 +68,8 @@ function generateQuestion(currentQuestion) { // shows new questions
 }
 
 
-function QuestionAsk(question, answers, correct) { // objects that hold questions and answers
+function QuestionAsk(question, answers, correct) { 
+// objects that hold questions and answers
 	this.question = question;
 	this.answers = answers;
 	this.correct = correct;
@@ -68,10 +79,12 @@ function QuestionAsk(question, answers, correct) { // objects that hold question
 
 function showGame() { 
 	$("div.main").fadeOut(400);
-	$(".questions-wrap").fadeIn(600); // fade game in
+	$(".questions-wrap").fadeIn(600); 
+	// fade game in
 }
 
-function increaseCount() { // track current question out of 10 total
+function increaseCount() { 
+// track current question out of 10 total
 	trackQuestion++;
 	$("span#track-questions").text(trackQuestion);
 }
@@ -81,12 +94,21 @@ function submitAnswer(lightQuestions) {
 		var userGuess = $(this).text();
 		console.log(userGuess);	
 		var currentQuestion = lightQuestions[trackQuestion];
-		if (userGuess !== currentQuestion.answers[currentQuestion.correct]) {
+		if (userGuess !== currentQuestion.answers[currentQuestion.correct]) { 
+		//only for wrong questions
 			console.log(trackQuestion);
-			increaseCount();
-			$(".questions-wrap").hide().fadeIn(600);
-			generateQuestion(lightQuestions[trackQuestion]);
-		}
+			
+
+		} else { 
+		//only for correct questions
+
+
+			
+		} 
+		//code works for right and wrong
+		increaseCount();
+		generateQuestion(lightQuestions[trackQuestion]);
+		$(".questions-wrap").hide().fadeIn(600);
 	});		
 }
 
@@ -104,11 +126,11 @@ lightQuestions[0] = new QuestionAsk("The Ewoks believe which character is God?",
 lightQuestions[1] = new QuestionAsk("In the Empire Strikes Back, C-3PO is shot by a stormtrooper, torn to pieces, and thrown into the trash. Which character finds all of his parts just narrowing saving him from the incinerator?", 
 		["Princess Leia", "Han Solo", "Chewbacca", "R2-D2"], 2);
 
-lightQuestions[2] = new QuestionAsk("In “A New Hope” who does R2-D2 claim to be the property of?", 
+lightQuestions[2] = new QuestionAsk("In A New Hope who does R2-D2 claim to be the property of?", 
 		["Captain Antillies", "Anakin Skywalker", 
 		"Luke Skywalker", "Obi-Wan Kenobi"], 3);
 
-lightQuestions[3] = new QuestionAsk("In “The Empire Strikes Back” When Luke and Han are missing, what does R2-D2 say the odds of survival are?",
+lightQuestions[3] = new QuestionAsk("In The Empire Strikes Back when Luke and Han are missing, what does R2-D2 say the odds of survival are?",
 		["1725 to 1", "725 to 1", "372 to 1", "3720 to 1"], 1);
 
 lightQuestions[4] = new QuestionAsk("In 'Return of the Jedi', what does Princess Leia disguise herself as?", 
@@ -131,6 +153,21 @@ lightQuestions[9] = new QuestionAsk("What is Jedi leader Obi-Wan Kenobi also kno
 
 
 // -------> DARK QUESTIONS <------ //
+
+var darkQuestions = new Array();
+
+darkQuestions[0] = new QuestionAsk("In the Empire Strikes Back, what was the name of the Rebel base on the ice world of Hoth?", 
+	["The Cave", "Echo Base", "Zone 12", "Man Hothma"], 1);
+
+darkQuestions[1] = new QuestionAsk("What are the two braids on Boba Fett’s shoulder from?", 
+	["The Cave", "Zone 12", "Echo Base", "Man Hothma"], 2);
+
+darkQuestions[2] = new QuestionAsk("In Episode III: Revenge of the Sith, who was the dark lord of the Sith that allegedly was able to save people from death?", 
+	["Darth Tyrannus", "Darth Vader", "Darth Sidious", "Darth Plageuis"], 3);
+
+darkQuestions[3] = new QuestionAsk("In Return of the Jedi, what are the first words Jabba the Hutt says?", 
+	[“I told you not to admit him!”, “A Jedi.”, “You weak-minded fool! He’s using an old Jedi mind trick.”, “Han Solo…”], 2);
+
 
 
 
