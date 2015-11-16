@@ -1,5 +1,5 @@
 	
-	var trackQuestion = 0;
+	var trackQuestion = 1;
 	var questionTotal = 10;
 	var countCorrect = 0; //creat function for this
 
