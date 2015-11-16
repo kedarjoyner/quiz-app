@@ -1,6 +1,7 @@
 	
 	var trackQuestion = 0;
 	var questionTotal = 10;
+	var countCorrect = 0; //creat function for this
 
 
 
@@ -48,7 +49,7 @@ $(document).ready(function() {
 // -------> FUNCTION <------ //
 
 
-function generateQuestion(currentQuestion) {
+function generateQuestion(currentQuestion) { // shows new questions
 	//$(".questions-wrap").fadeIn(600);
 	$(".question").text(currentQuestion.question);
 	$(".option1").text(currentQuestion.answers[0]);
@@ -58,7 +59,7 @@ function generateQuestion(currentQuestion) {
 }
 
 
-function QuestionAsk(question, answers, correct) {
+function QuestionAsk(question, answers, correct) { // objects that hold questions and answers
 	this.question = question;
 	this.answers = answers;
 	this.correct = correct;
@@ -66,18 +67,16 @@ function QuestionAsk(question, answers, correct) {
 
 
 
-function showGame() {
-	$(".main").fadeOut(400);
-	//$(".questions-wrap").fadeIn(600, function() {
-	//});
+function showGame() { 
+	$("div.main").fadeOut(400); // fade game in
 }
 
-function increaseCount() {
+function increaseCount() { // track current question out of 10 total
 	trackQuestion++;
-	$(".track-questions").text(trackQuestion);
+	$("span#track-questions").text(trackQuestion);
 }
 
-function submitAnswer(lightQuestions) {
+function submitAnswer(lightQuestions) { 
 	$("li").click(function() {
 		var userGuess = $(this).text();
 		console.log(userGuess);	
@@ -85,6 +84,7 @@ function submitAnswer(lightQuestions) {
 		if (userGuess !== currentQuestion.answers[currentQuestion.correct]) {
 			console.log(trackQuestion);
 			increaseCount();
+			$(".questions-wrap").fadeOut(300).fadeIn(600);
 			generateQuestion(lightQuestions[trackQuestion]);
 		}
 	});		
@@ -128,6 +128,7 @@ lightQuestions[8] = new QuestionAsk("When he was cast as Jedi Knight Mace Windu,
 
 lightQuestions[9] = new QuestionAsk("What is Jedi leader Obi-Wan Kenobi also known as?", 
 		["The Legend", "The Informant", "The Negotiator", "The Betrayer"], 2);
+
 
 // -------> DARK QUESTIONS <------ //
 
