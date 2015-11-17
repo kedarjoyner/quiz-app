@@ -76,9 +76,10 @@ function increaseCount() { // track current question out of 10 total
 }
 
 function nextQuestion() {
-	increaseCount(); //increaseCount()` should go before `generateQuestion` so that the value being passed in to `trackQuestion` has already been increased
+	increaseCount(); // increaseCount()` should go before `generateQuestion` so that the value being passed in to `trackQuestion` has already been increased
 	generateQuestion(lightQuestions[trackQuestion]);
 	$(".questions-wrap").hide().fadeIn(600);
+	$(".fa-check, .fa-times").hide();
 }
 
 function submitAnswer(lightQuestions) { 

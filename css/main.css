@@ -95,15 +95,15 @@ h1 {
 	margin-top: 50px;
 }
 
-
-h2 {
-	font-size: 1.5em;
-	font-weight: 400;	
+.question {
+	font-size: 1.3em;
+	margin: 0 auto;
+	width: 60%;
 }
 
 
 #quiz-question-wrap {
-	width: 80%;
+	width: 70%;
 	text-align: center;
 	margin: 0 auto;
 	margin-top: 350px;
@@ -125,18 +125,20 @@ h3 {
 
 .fa-check {
 	color: #6DB045;
-	display: none;
+	line-height: 80px;
 }
+
 
 .fa-times {
 	color:  #ED3044;
+	line-height: 80px;
 	display: none;
 }
 
 .right-wrong-icons {
 	text-align: center;
 	width: 80%;
-	height: 60px;
+	height: 80px;
 	margin: 0 auto;
 }
 
