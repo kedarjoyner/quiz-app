@@ -1,5 +1,5 @@
 	
-	var trackQuestion = 1;
+	var trackQuestion = 0;
 	var questionTotal = 10;
 	var countCorrect = 0; //creat function for this
 
@@ -75,7 +75,6 @@ function QuestionAsk(question, answers, correct) {
 }
 
 
-
 function showGame() { 
 	$("div.main").fadeOut(400);
 	$(".questions-wrap").fadeIn(600); 
@@ -91,15 +90,20 @@ function increaseCount() {
 function submitAnswer(lightQuestions) { 
 	$("li").click(function() {
 		var userGuess = $(this).text();
-		console.log(userGuess);	
+		//console.log(userGuess);	
 		var currentQuestion = lightQuestions[trackQuestion];
+		//console.log(userGuess);
+		//console.log(currentQuestion.answers[currentQuestion.correct]);
+		console.log(currentQuestion);
 		if (userGuess === currentQuestion.answers[currentQuestion.correct]) { 
 		//only for right questions
 			countCorrect++;
 			$(".fa-check").show();
 
 		} else { 
-			console.log ("You've got " + countCorrect + " out of 10 questions right");	
+			console.log ("You've got " + countCorrect + " out of 10 questions right");
+			$(".fa-check").hide();
+			$(".fa-times").show();	
 		} 
 		//code works for right and wrong
 		increaseCount();

@@ -107,7 +107,6 @@ h2 {
 	text-align: center;
 	margin: 0 auto;
 	margin-top: 350px;
-	margin-bottom: 50px;
 }
 
 .light-text, .dark-text {
@@ -127,20 +126,19 @@ h3 {
 .fa-check {
 	color: #6DB045;
 	display: none;
-	margin-top: -30px;
 }
 
 .fa-times {
 	color:  #ED3044;
 	display: none;
-	margin-top: -30px;
 }
 
 .right-wrong-icons {
 	text-align: center;
-	margin-bottom: 5px;
+	width: 80%;
+	height: 60px;
+	margin: 0 auto;
 }
-
 
 /* -- BUTTONS AND INPUTS -- */
 
@@ -148,6 +146,7 @@ h3 {
 .dark-light-buttons {
 	text-align: center;
 	margin-top: 80px;
+	margin-bottom: 50px;
 }
 
 .choose-light {
@@ -229,7 +228,7 @@ h3 {
 	  -webkit-justify-content: center;
 	justify-content: center;
 	margin: 0 auto;
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 	margin-bottom: 50px;
 }
 
