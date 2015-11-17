@@ -96,14 +96,10 @@ function submitAnswer(lightQuestions) {
 		if (userGuess === currentQuestion.answers[currentQuestion.correct]) { 
 		//only for right questions
 			countCorrect++;
-			console.log(countCorrect);
-			
+			$(".fa-check").show();
 
 		} else { 
-		
-
-
-			
+			console.log ("You've got " + countCorrect + " out of 10 questions right");	
 		} 
 		//code works for right and wrong
 		increaseCount();
@@ -123,14 +119,14 @@ var lightQuestions = new Array();
 lightQuestions[0] = new QuestionAsk("The Ewoks believe which character is God?", 
 		["C-3PO", "R2-D2", "Princess Leia", "Jar Jar Binks"], 0);
 
-lightQuestions[1] = new QuestionAsk("In the Empire Strikes Back, C-3PO is shot by a stormtrooper, torn to pieces, and thrown into the trash. Which character finds all of his parts just narrowing saving him from the incinerator?", 
+lightQuestions[1] = new QuestionAsk("In 'The Empire Strikes Back', C-3PO is shot by a stormtrooper, torn to pieces, and thrown into the trash. Which character finds all of his parts just narrowing saving him from the incinerator?", 
 		["Princess Leia", "Han Solo", "Chewbacca", "R2-D2"], 2);
 
-lightQuestions[2] = new QuestionAsk("In A New Hope who does R2-D2 claim to be the property of?", 
+lightQuestions[2] = new QuestionAsk("In 'A New Hope' who does R2-D2 claim to be the property of?", 
 		["Captain Antillies", "Anakin Skywalker", 
 		"Luke Skywalker", "Obi-Wan Kenobi"], 3);
 
-lightQuestions[3] = new QuestionAsk("In The Empire Strikes Back when Luke and Han are missing, what does R2-D2 say the odds of survival are?",
+lightQuestions[3] = new QuestionAsk("In 'The Empire Strikes Back' when Luke and Han are missing, what does R2-D2 say the odds of survival are?",
 		["1725 to 1", "725 to 1", "372 to 1", "3720 to 1"], 1);
 
 lightQuestions[4] = new QuestionAsk("In 'Return of the Jedi', what does Princess Leia disguise herself as?", 
@@ -139,7 +135,7 @@ lightQuestions[4] = new QuestionAsk("In 'Return of the Jedi', what does Princess
 lightQuestions[5] = new QuestionAsk("Which famous scientist’s eyes were Yoda’s based on?",
 		["Isaac Newton", "Sir Francis Bacon", "Albert Einstein", "Carl Sagan"], 2);
 
-lightQuestions[6] = new QuestionAsk("Which of these names belonged to an Ewok in the 1983’s Return of the Jedi?",
+lightQuestions[6] = new QuestionAsk("Which of these names belonged to an Ewok in 1983’s 'Return of the Jedi?'",
 		["Snootles", "Woola", "Nikta", "Teebo"], 3);
 
 lightQuestions[7] = new QuestionAsk("Who eventually had the honor of killing Jabba the Hutt?",
@@ -156,16 +152,16 @@ lightQuestions[9] = new QuestionAsk("What is Jedi leader Obi-Wan Kenobi also kno
 
 var darkQuestions = new Array();
 
-darkQuestions[0] = new QuestionAsk("In the Empire Strikes Back, what was the name of the Rebel base on the ice world of Hoth?", 
+darkQuestions[0] = new QuestionAsk("In 'The Empire Strikes Back', what was the name of the Rebel base on the ice world of Hoth?", 
 	["The Cave", "Echo Base", "Zone 12", "Man Hothma"], 1);
 
 darkQuestions[1] = new QuestionAsk("What are the two braids on Boba Fett’s shoulder from?", 
 	["Wookie Scalps", "Jedi Padawans", "Wampa Scalps", "Both Wookie and Wampa Scalps"], 0);
 
-darkQuestions[2] = new QuestionAsk("In Episode III: Revenge of the Sith, who was the dark lord of the Sith that allegedly was able to save people from death?", 
+darkQuestions[2] = new QuestionAsk("In 'Revenge of the Sith', who was the dark lord of the Sith that allegedly was able to save people from death?", 
 	["Darth Tyrannus", "Darth Vader", "Darth Sidious", "Darth Plageuis"], 3);
 
-darkQuestions[3] = new QuestionAsk("In Return of the Jedi, what are the first words Jabba the Hutt says?", 
+darkQuestions[3] = new QuestionAsk("In 'Return of the Jedi,' what are the first words Jabba the Hutt says?", 
 	["I told you not to admit him!", "A Jedi.", "You weak-minded fool! He’s using an old Jedi mind trick.", "Han Solo…"], 2);
 
 darkQuestions[4] = new QuestionAsk("What group kidnapped Anakin Skywalker’s mother and later caused trouble for Luke Skywalker?", 
@@ -174,7 +170,7 @@ darkQuestions[4] = new QuestionAsk("What group kidnapped Anakin Skywalker’s mo
 darkQuestions[5] = new QuestionAsk("How old was Darth Vader when he turned to the dark side?", 
 	["19", "32", "40", "21"], 3);
 
-darkQuestions[6] = new QuestionAsk("In The Phantom Menace, which Jedi Knight did Darth Maul kill?", 
+darkQuestions[6] = new QuestionAsk("In 'The Phantom Menace,' which Jedi Knight did Darth Maul kill?", 
 	["Qui-Gon Jinn", "Mace Windu", "Ki-Adi-Mundi", "Saesee Tin"], 0);
 
 darkQuestions[7] = new QuestionAsk("What does AT-AT stand for?", 

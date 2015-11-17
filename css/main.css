@@ -98,15 +98,16 @@ h1 {
 
 h2 {
 	font-size: 1.5em;
-	font-weight: 400;
-	
+	font-weight: 400;	
 }
+
 
 #quiz-question-wrap {
 	width: 80%;
 	text-align: center;
 	margin: 0 auto;
 	margin-top: 350px;
+	margin-bottom: 50px;
 }
 
 .light-text, .dark-text {
@@ -121,6 +122,23 @@ h2 {
 h3 {
 	text-align: center;
 	margin-bottom: 50px;
+}
+
+.fa-check {
+	color: #6DB045;
+	display: none;
+	margin-top: -30px;
+}
+
+.fa-times {
+	color:  #ED3044;
+	display: none;
+	margin-top: -30px;
+}
+
+.right-wrong-icons {
+	text-align: center;
+	margin-bottom: 5px;
 }
 
 
@@ -211,8 +229,8 @@ h3 {
 	  -webkit-justify-content: center;
 	justify-content: center;
 	margin: 0 auto;
-	margin-top: 80px;
-	margin-bottom: 100px;
+	margin-top: 20px;
+	margin-bottom: 50px;
 }
 
 ul.options-wrap {
