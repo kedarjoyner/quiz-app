@@ -9,31 +9,23 @@ $(document).ready(function() {
 
 	$(".questions-wrap").hide();
 
-	$("button.choose-light").hover(function() { 
-	//when mouse hovers over light button, toggle
+	$("button.choose-light").hover(function() { //when mouse hovers over light button, toggle
 		$(".light-img, .light-text").toggle();
 	});
 
-	$("button.choose-dark").hover(function() { 
-	//when mouse hovers over dark button, toggle
+	$("button.choose-dark").hover(function() { //when mouse hovers over dark button, toggle
 		$(".dark-img, .dark-text").toggle();
 	});
 
-	$("button.choose-light").click(function() { 
-	// when game starts, switch player icon to light
+	$("button.choose-light").click(function() { // when game starts, switch player icon to light
 		showGame();
-		$(".light-sabers").hide(); 
-		//hide player icon
-		$(".playericon-light").slideToggle(300, "easeInQuint"); 
-		//change player icon to leah
-		$("li").addClass("options-light-background"); 
-		// change color of list items
-		$("li").hover(function() { 
-		//change color of list items on hover
+		$(".light-sabers").hide(); //hide player icon
+		$(".playericon-light").slideToggle(300, "easeInQuint"); //change player icon to leah
+		$("li").addClass("options-light-background"); // change color of list items
+		$("li").hover(function() { //change color of list items on hover
 			$(this).toggleClass("options-hover");
 		});
-		generateQuestion(lightQuestions[0]); 
-		// question 1 from array 1
+		generateQuestion(lightQuestions[0]); // question 1 from array 1
 		submitAnswer(lightQuestions);
 	});
 
@@ -57,8 +49,7 @@ $(document).ready(function() {
 // -------> FUNCTION <------ //
 
 
-function generateQuestion(currentQuestion) { 
-// shows new questions
+function generateQuestion(currentQuestion) { // shows new questions
 	$(".question").text(currentQuestion.question);
 	$(".option1").text(currentQuestion.answers[0]);
 	$(".option2").text(currentQuestion.answers[1]);
@@ -67,8 +58,7 @@ function generateQuestion(currentQuestion) {
 }
 
 
-function QuestionAsk(question, answers, correct) { 
-// objects that hold questions and answers
+function QuestionAsk(question, answers, correct) { // objects that hold questions and answers
 	this.question = question;
 	this.answers = answers;
 	this.correct = correct;
@@ -77,30 +67,27 @@ function QuestionAsk(question, answers, correct) {
 
 function showGame() { 
 	$("div.main").fadeOut(400);
-	$(".questions-wrap").fadeIn(600); 
-	// fade game in
+	$(".questions-wrap").fadeIn(600); // fade game in
 }
 
-function increaseCount() { 
-// track current question out of 10 total
+function increaseCount() { // track current question out of 10 total
 	trackQuestion++;
-	$("span#track-questions").text(trackQuestion);
+	$("span#track-questions").text(trackQuestion +1); // add one for the user
 }
 
 function nextQuestion() {
+	increaseCount(); //increaseCount()` should go before `generateQuestion` so that the value being passed in to `trackQuestion` has already been increased
 	generateQuestion(lightQuestions[trackQuestion]);
 	$(".questions-wrap").hide().fadeIn(600);
-	increaseCount();
 }
 
 function submitAnswer(lightQuestions) { 
 	$("li").click(function() {
 		var userGuess = $(this).text();	
-		var currentQuestion = lightQuestions[trackQuestion]; 
+		var currentQuestion = lightQuestions[trackQuestion]; // display first question, then increment trackQuestion by 1 to grab next question
 		console.log(currentQuestion);
-		if (userGuess === currentQuestion.answers[currentQuestion.correct]) {
-		//only for right questions
-			countCorrect++;
+		if (userGuess === currentQuestion.answers[currentQuestion.correct]) { // if userGuess equals the correct answer, do the following
+			countCorrect++; // increase number of correct answers
 			$(".fa-check").show();
 
 		} else { 
@@ -108,10 +95,10 @@ function submitAnswer(lightQuestions) {
 			$(".fa-check").hide();
 			$(".fa-times").show();	
 		} 
-		// move to next question
-		setTimeout(nextQuestion, 500);
+
+		setTimeout(nextQuestion, 500); // move to next questions
 		
-	});		
+	});
 }
 
 
