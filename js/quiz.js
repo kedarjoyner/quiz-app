@@ -87,15 +87,18 @@ function increaseCount() {
 	$("span#track-questions").text(trackQuestion);
 }
 
+function nextQuestion() {
+	generateQuestion(lightQuestions[trackQuestion]);
+	$(".questions-wrap").hide().fadeIn(600);
+	increaseCount();
+}
+
 function submitAnswer(lightQuestions) { 
 	$("li").click(function() {
-		var userGuess = $(this).text();
-		//console.log(userGuess);	
-		var currentQuestion = lightQuestions[trackQuestion];
-		//console.log(userGuess);
-		//console.log(currentQuestion.answers[currentQuestion.correct]);
+		var userGuess = $(this).text();	
+		var currentQuestion = lightQuestions[trackQuestion]; 
 		console.log(currentQuestion);
-		if (userGuess === currentQuestion.answers[currentQuestion.correct]) { 
+		if (userGuess === currentQuestion.answers[currentQuestion.correct]) {
 		//only for right questions
 			countCorrect++;
 			$(".fa-check").show();
@@ -105,10 +108,9 @@ function submitAnswer(lightQuestions) {
 			$(".fa-check").hide();
 			$(".fa-times").show();	
 		} 
-		//code works for right and wrong
-		increaseCount();
-		generateQuestion(lightQuestions[trackQuestion]);
-		$(".questions-wrap").hide().fadeIn(600);
+		// move to next question
+		setTimeout(nextQuestion, 500);
+		
 	});		
 }
 
