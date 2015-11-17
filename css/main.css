@@ -60,7 +60,7 @@ ul > li {
 	position: fixed;
 	background-color: #E6E6E6;
 	width: 100%;
-	height: 180px;
+	height: 150px;
 	top: 0;
 	z-index: 9999;
 }
@@ -73,7 +73,7 @@ ul > li {
 	width: 188px;
 	height: 144px;
 	margin: 0 auto;
-	margin-top: -20px;
+	margin-top: -40px;
 }
 
 .playericon-light, .playericon-dark {

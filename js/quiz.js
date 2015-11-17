@@ -93,7 +93,7 @@ function submitAnswer(lightQuestions) {
 		var userGuess = $(this).text();
 		console.log(userGuess);	
 		var currentQuestion = lightQuestions[trackQuestion];
-		if (userGuess !== currentQuestion.answers[currentQuestion.correct]) { 
+		if (userGuess === currentQuestion.answers[currentQuestion.correct]) { 
 		//only for wrong questions
 			console.log(trackQuestion);
 			
