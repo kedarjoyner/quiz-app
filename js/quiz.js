@@ -9,12 +9,24 @@ $(document).ready(function() {
 
 	$(".questions-wrap").hide();
 
-	$("button.choose-light").hover(function() { //when mouse hovers over light button, toggle
-		$(".light-img, .light-text").toggle();
+	$("button.choose-light").mouseenter(function() { //when mouse hovers over light button, toggle
+		$("button.choose-light img").hide();
+		$("button.choose-light p").show();
 	});
 
-	$("button.choose-dark").hover(function() { //when mouse hovers over dark button, toggle
-		$(".dark-img, .dark-text").toggle();
+	$("button.choose-light").mouseleave(function() { //when mouse hovers over light button, toggle
+		$("button.choose-light img").show();
+		$("button.choose-light p").hide();
+	});
+
+	$("button.choose-dark").mouseenter(function() { //when mouse hovers over dark button, toggle
+		$("button.choose-dark img").hide();
+		$("button.choose-dark p").show();
+	});
+
+	$("button.choose-dark").mouseleave(function() { //when mouse hovers over dark button, toggle
+		$("button.choose-dark img").show();
+		$("button.choose-dark p").hide();
 	});
 
 	$("button.choose-light").click(function() { // when game starts, switch player icon to light
@@ -43,6 +55,16 @@ $(document).ready(function() {
 	});
 });
 
+// $('.ryu').mouseenter(function() { 
+// 	$('.ryu-action').hide(); //(this line means hide all 4 divs) 
+// 	$('.ryu-ready').show(); 
+// }); // —> mouseleave —> display the default state --> ryu-still (and hide everythying else)/ 
+
+// $('.ryu').mouseleave(function() { 
+// 	$('.ryu-action').hide(); //(this line means hide all 4 divs) 
+// 	$('.ryu-still').show(); 
+// });
+
 
 
 
@@ -70,16 +92,13 @@ function showGame() {
 	$(".questions-wrap").fadeIn(600); // fade game in
 }
 
-function increaseCount() { // track current question out of 10 total
-	trackQuestion++;
-	$("span#track-questions").text(trackQuestion +1); // add one for the user
-}
-
-function nextQuestion() {
-	increaseCount(); // increaseCount()` should go before `generateQuestion` so that the value being passed in to `trackQuestion` has already been increased
-	generateQuestion(lightQuestions[trackQuestion]);
-	$(".questions-wrap").hide().fadeIn(600);
-	$(".fa-check, .fa-times").hide();
+function increaseCount() { // track current question out of 10 total	
+	if (trackQuestion <= 10) {
+		trackQuestion++; // add one for the user
+		$("span#track-questions").text(trackQuestion +1); 
+	} else if (trackQuestion > 10) {
+		// startOver();
+	}
 }
 
 function submitAnswer(lightQuestions) { 
@@ -97,11 +116,18 @@ function submitAnswer(lightQuestions) {
 			$(".fa-times").show();	
 		} 
 
-		setTimeout(nextQuestion, 500); // move to next questions
+		function nextQuestion() { // move to next question
+			increaseCount(); // increaseCount() should go before generateQuestion so that the value being passed in to trackQuestion has already been increased
+			$(".fa-check, .fa-times").hide();
+			generateQuestion(lightQuestions[trackQuestion]); //passes lightQuestions or darkQuestions through here
+			$(".questions-wrap").hide().fadeIn(600);	
+		}
+
+		setTimeout(nextQuestion, 1000); // move to next questions
 		
 	});
-}
 
+}
 
 
 
@@ -120,14 +146,14 @@ lightQuestions[2] = new QuestionAsk("In 'A New Hope' who does R2-D2 claim to be 
 		["Captain Antillies", "Anakin Skywalker", 
 		"Luke Skywalker", "Obi-Wan Kenobi"], 3);
 
-lightQuestions[3] = new QuestionAsk("In 'The Empire Strikes Back' when Luke and Han are missing, what does R2-D2 say the odds of survival are?",
-		["1725 to 1", "725 to 1", "372 to 1", "3720 to 1"], 1);
-
-lightQuestions[4] = new QuestionAsk("In 'Return of the Jedi', what does Princess Leia disguise herself as?", 
+lightQuestions[3] = new QuestionAsk("In 'Return of the Jedi', what does Princess Leia disguise herself as?", 
 		["Wookie", "Storm Trooper", "Bounty Hunter", "Droid"], 2);
 
-lightQuestions[5] = new QuestionAsk("Which famous scientist’s eyes were Yoda’s based on?",
+lightQuestions[4] = new QuestionAsk("Which famous scientist’s eyes were Yoda’s based on?",
 		["Isaac Newton", "Sir Francis Bacon", "Albert Einstein", "Carl Sagan"], 2);
+
+lightQuestions[5] = new QuestionAsk("In 'The Empire Strikes Back' when Luke and Han are missing, what does R2-D2 say the odds of survival are?",
+		["1725 to 1", "725 to 1", "372 to 1", "3720 to 1"], 1);
 
 lightQuestions[6] = new QuestionAsk("Which of these names belonged to an Ewok in 1983’s 'Return of the Jedi?'",
 		["Snootles", "Woola", "Nikta", "Teebo"], 3);
