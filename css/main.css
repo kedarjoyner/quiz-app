@@ -99,7 +99,7 @@ h1 {
 	font-size: 1.5em;
 	margin: 0 auto;
 	width: 75%;
-	margin-top: -40px;
+	margin-top: -75px;
 }
 
 
@@ -228,6 +228,7 @@ h3 {
 	margin: 0 auto;
 	/*margin-top: 20px;*/
 	margin-bottom: 50px;
+	margin-top: -20px;
 }
 
 ul.options-wrap {
