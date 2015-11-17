@@ -92,18 +92,18 @@ function submitAnswer(lightQuestions) {
 		var userGuess = $(this).text();
 		//console.log(userGuess);	
 		var currentQuestion = lightQuestions[trackQuestion];
-		console.log(userGuess);
-		console.log(currentQuestion.answers[currentQuestion.correct]);
+		//console.log(userGuess);
+		//console.log(currentQuestion.answers[currentQuestion.correct]);
 		console.log(currentQuestion);
 		if (userGuess === currentQuestion.answers[currentQuestion.correct]) { 
 		//only for right questions
 			countCorrect++;
-			$("div.right-wrong-icons").addClass(".fa-check");
+			$(".fa-check").show();
 
 		} else { 
 			console.log ("You've got " + countCorrect + " out of 10 questions right");
-			$("div.right-wrong-icons").removeClass(".fa-check");
-			$("div.right-wrong-icons").addClass(".fa-times");	
+			$(".fa-check").hide();
+			$(".fa-times").show();	
 		} 
 		//code works for right and wrong
 		increaseCount();
