@@ -94,12 +94,13 @@ function submitAnswer(lightQuestions) {
 		console.log(userGuess);	
 		var currentQuestion = lightQuestions[trackQuestion];
 		if (userGuess === currentQuestion.answers[currentQuestion.correct]) { 
-		//only for wrong questions
-			console.log(trackQuestion);
+		//only for right questions
+			countCorrect++;
+			console.log(countCorrect);
 			
 
 		} else { 
-		//only for correct questions
+		
 
 
 			
