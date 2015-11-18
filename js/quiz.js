@@ -55,18 +55,6 @@ $(document).ready(function() {
 	});
 });
 
-// $('.ryu').mouseenter(function() { 
-// 	$('.ryu-action').hide(); //(this line means hide all 4 divs) 
-// 	$('.ryu-ready').show(); 
-// }); // —> mouseleave —> display the default state --> ryu-still (and hide everythying else)/ 
-
-// $('.ryu').mouseleave(function() { 
-// 	$('.ryu-action').hide(); //(this line means hide all 4 divs) 
-// 	$('.ryu-still').show(); 
-// });
-
-
-
 
 // -------> FUNCTION <------ //
 
@@ -89,7 +77,7 @@ function QuestionAsk(question, answers, correct) { // objects that hold question
 
 function showGame() { 
 	$("div.main").fadeOut(400);
-	$(".questions-wrap").fadeIn(600); // fade game in
+	$(".questions-wrap").fadeIn(400); // fade game in
 }
 
 function increaseCount() { // track current question out of 10 total	
@@ -107,18 +95,17 @@ function submitAnswer(lightQuestions) {
 		var currentQuestion = lightQuestions[trackQuestion]; // display first question, then increment trackQuestion by 1 to grab next question
 		console.log(currentQuestion);
 		if (userGuess === currentQuestion.answers[currentQuestion.correct]) { // if userGuess equals the correct answer, do the following
-			countCorrect++; // increase number of correct answers
-			$(".fa-check").show();
-
+			$(".fa-check, .correct-notify").show().css("color", "#6DB045");
+			countCorrect++; // increase number of correct answers		
 		} else { 
+			$(".fa-check, .correct-notify").hide();
+			$(".fa-times, .wrong-notify").show().css("color", "#ED3044");
 			console.log ("You've got " + countCorrect + " out of 10 questions right");
-			$(".fa-check").hide();
-			$(".fa-times").show();	
 		} 
 
 		function nextQuestion() { // move to next question
 			increaseCount(); // increaseCount() should go before generateQuestion so that the value being passed in to trackQuestion has already been increased
-			$(".fa-check, .fa-times").hide();
+			$(".fa-check, .fa-times, .correct-notify, .wrong-notify").hide();
 			generateQuestion(lightQuestions[trackQuestion]); //passes lightQuestions or darkQuestions through here
 			$(".questions-wrap").hide().fadeIn(600);	
 		}
