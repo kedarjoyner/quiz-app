@@ -1,143 +1,3 @@
-	
-	var trackQuestion = 0;
-	var questionTotal = 10;
-	var countCorrect = 0; //creat function for this
-
-
-
-$(document).ready(function() {
-
-	$("div.questions-wrap").hide();
-
-	$("button.choose-light").mouseenter(function() { //when mouse hovers over light button, toggle
-		$("button.choose-light img").hide();
-		$("button.choose-light p").show();
-	});
-
-	$("button.choose-light").mouseleave(function() { //when mouse hovers over light button, toggle
-		$("button.choose-light img").show();
-		$("button.choose-light p").hide();
-	});
-
-	$("button.choose-dark").mouseenter(function() { //when mouse hovers over dark button, toggle
-		$("button.choose-dark img").hide();
-		$("button.choose-dark p").show();
-	});
-
-	$("button.choose-dark").mouseleave(function() { //when mouse hovers over dark button, toggle
-		$("button.choose-dark img").show();
-		$("button.choose-dark p").hide();
-	});
-
-	$("button.choose-light").click(function() { // when game starts, switch player icon to light
-		showGame();
-		$("img.light-sabers").hide(); //hide player icon
-		$("img.playericon-light").slideToggle(300, "easeInQuint"); //change player icon to leah
-		$("li").addClass("options-light-background"); // change color of list items
-		$("li").hover(function() { //change color of list items on hover
-			$(this).toggleClass("options-hover");
-		});
-		generateQuestion(lightQuestions[0]); // question 1 from array 1
-		submitAnswer(lightQuestions);
-	});
-
-	$("button.choose-dark").click(function() { 
-		showGame();
-		$("div.questions-wrap").show();
-		$("img.light-sabers").hide();
-		$("img.playericon-dark").slideToggle(300, "easeInQuint");
-		$("li").addClass("options-dark-background");
-		$("li").hover(function() {
-			$(this).toggleClass("options-hover");
-		});
-		generateQuestion(darkQuestions[0]);
-		submitAnswer(darkQuestions);
-	});
-
-});
-
-
-// -------> FUNCTIONS <------ //
-
-
-function generateQuestion(currentQuestion) { // shows new questions
-	$("p.question").text(currentQuestion.question);
-	$("li.option1").text(currentQuestion.answers[0]);
-	$("li.option2").text(currentQuestion.answers[1]);
-	$("li.option3").text(currentQuestion.answers[2]);
-	$("li.option4").text(currentQuestion.answers[3]);
-}
-
-
-function QuestionAsk(question, answers, correct) { // objects that hold questions and answers
-	this.question = question;
-	this.answers = answers;
-	this.correct = correct;
-}
-
-
-function showGame() { 
-	$("div.main").fadeOut(400);
-	$("div.questions-wrap").fadeIn(400); // fade game in
-}
-
-function increaseCount() { // track current question out of 10 total	
-	trackQuestion++; // add one for the user
-	$("span#track-questions").text(trackQuestion +1); 
-}
-
-function submitAnswer(lightQuestions) { 
-	$("li").click(function() {
-		var userGuess = $(this).text();	
-		var currentQuestion = lightQuestions[trackQuestion]; // display first question, then increment trackQuestion by 1 to grab next question
-		if (userGuess === currentQuestion.answers[currentQuestion.correct]) { // if userGuess equals the correct answer, do the following
-			$("i.fa-check, p.correct-notify").show(); //show "yes!" and check-mark
-			countCorrect++; // increase number of correct answers	
-			console.log(countCorrect);	
-		} else { 
-			$("i.fa-check, p.correct-notify").hide();
-			$("i.fa-times, p.wrong-notify").show(); // show "nope!" and "x"
-			console.log(countCorrect);
-		} 
-
-		function nextQuestion() { // move to next question
-			increaseCount(); // increaseCount() should go before generateQuestion so that the value being passed in to trackQuestion has already been increased
-			$("i.fa-check, i.fa-times, p.correct-notify, p.wrong-notify").hide();
-			generateQuestion(lightQuestions[trackQuestion]); //passes lightQuestions or darkQuestions through here
-			//$("div.questions-wrap").hide().fadeIn(600);	
-		}
-
-		// move to next questions
-		if (trackQuestion < 9) { 
-			setTimeout(nextQuestion, 900); 
-		} else {
-			$("div.questions-wrap").fadeOut(400);
-			$("div.try-again-wrap").fadeIn(400);
-			startOver();
-		}
-	});
-}
-
-function startOver() {
-	$("span#final-score").text(countCorrect);
-	$(".try-again").click(function() {
-		showIntro();
-		trackQuestion = 0;
-		questionTotal = 10;
-		countCorrect = 0;
-		$("span#track-questions").text(trackQuestion +1);
-	});	
-}
-
-function showIntro() {
-	$(".main").show();
-	$("img.light-sabers").show();
-	$("img.playericon-light, img.playericon-dark").hide();
-	$("div.try-again-wrap").hide();
-}
-
-
-
 
 // -------> LIGHT QUESTIONS <------ //
 
@@ -208,6 +68,220 @@ darkQuestions[8] = new QuestionAsk("Who was the first Dark Side users?",
 
 darkQuestions[9] = new QuestionAsk("Who cut off Anakin Skywalker’s arm during a fight?", 
 	["The Rodian Assassin", "Count Dooku", "Palpatine", "Jango Fett"], 1);
+
+
+	
+var trackQuestion = 0;
+var questionTotal = 10;
+var countCorrect = 0; //creat function for this
+
+
+
+$(document).ready(function() {
+	// hide questions from user
+	$("div.questions-wrap").hide();
+
+	// when mouse hovers over light button, show text
+	$("button.choose-light").mouseenter(function() { 
+		$("button.choose-light img").hide();
+		$("button.choose-light p").show();
+	});
+
+	// when mouse hovers over light button, show icon
+	$("button.choose-light").mouseleave(function() {
+		$("button.choose-light img").show();
+		$("button.choose-light p").hide();
+	});
+
+	// when mouse hovers over dark button, show text
+	$("button.choose-dark").mouseenter(function() { 
+		$("button.choose-dark img").hide();
+		$("button.choose-dark p").show();
+	});
+
+	// when mouse hovers over dark button, show text
+	$("button.choose-dark").mouseleave(function() { 
+		$("button.choose-dark img").show();
+		$("button.choose-dark p").hide();
+	});
+
+	// if choose light, start game
+	 $("button.choose-light").click(function() { 
+	 	showGame();
+
+	 	// hide light sabers icon
+		$("img.light-sabers").hide(); 
+
+		//show player icon
+		$("img.playericon-light").slideToggle(300, "easeInQuint");
+
+		// add green background 
+		$("li").addClass("options-light-background"); 
+
+		// when mouse hovers over question, turn blue
+		$("li").mouseenter(function() {
+			$(this).removeClass("options-light-background");
+			$(this).addClass("options-hover");
+		});
+
+		// when mouse leaves questions, turn green
+		$("li").mouseleave(function() {
+			$(this).addClass("options-light-background");
+			$(this).removeClass("options-hover");
+		});
+
+		//show question 1 of lightQuestions array
+		generateQuestion(lightQuestions[0]);	
+		//submitAnswer(lightQuestions);
+	});
+
+	// if choose dark, start game
+	 $("button.choose-dark").click(function() { 
+		showGame();
+		$("div.questions-wrap").show();
+		$("img.light-sabers").hide();
+		$("img.playericon-dark").slideToggle(300, "easeInQuint");
+		$("li").addClass("options-dark-background"); 
+
+		// when mouse hovers over question, turn blue
+		$("li").mouseenter(function() {
+			$(this).removeClass("options-dark-background");
+			$(this).addClass("options-hover");
+		});
+
+		// when mouse leaves question, turn red
+		$("li").mouseleave(function() {
+			$(this).addClass("options-dark-background");
+			$(this).removeClass("options-hover");
+		});
+		generateQuestion(darkQuestions[0]);
+		//submitAnswer(darkQuestions);
+	});	
+
+	 $("ul.options-wrap li").on("click", function() { // generate light questions on click
+	 	var userGuess = $(this).text();
+	 	var currentQuestion = lightQuestions[trackQuestion];
+	 	console.log(userGuess);
+
+	 	if (!currentQuestion || trackQuestion > 9) {
+	 		startOver();
+	 		generateQuestion(lightQuestions[trackQuestion]);
+				$("i.fa-check, i.fa-times, p.correct-notify, p.wrong-notify").hide();
+				$("span#track-questions").text(trackQuestion +1);
+
+	 	} else {
+
+		 	if (userGuess === currentQuestion.answers[currentQuestion.correct]) {
+		 		countCorrect++;	
+		 		$("i.fa-check, p.correct-notify").show();
+
+		 	} else {
+
+		 		$("i.fa-check, p.correct-notify").hide();
+				$("i.fa-times, p.wrong-notify").show();
+		 	}
+		 	// show next array of questions
+		 	trackQuestion++
+		 	setTimeout(function() {
+				generateQuestion(lightQuestions[trackQuestion]);
+				$("i.fa-check, i.fa-times, p.correct-notify, p.wrong-notify").hide();
+				$("span#track-questions").text(trackQuestion +1);
+		 	}, 900); }
+
+		});
+});
+
+
+// -------> FUNCTIONS <------ //
+
+
+function generateQuestion(currentQuestion) { // shows new questions
+	if (!currentQuestion || trackQuestion > 9) {
+		startOver();
+	} else { 
+
+		$("p.question").text(currentQuestion.question);
+		$("li.option1").text(currentQuestion.answers[0]);
+		$("li.option2").text(currentQuestion.answers[1]);
+		$("li.option3").text(currentQuestion.answers[2]);
+		$("li.option4").text(currentQuestion.answers[3]);
+	}
+}
+
+
+function QuestionAsk(question, answers, correct) { // objects that hold questions and answers
+	this.question = question;
+	this.answers = answers;
+	this.correct = correct;
+}
+
+
+function showGame() { 
+	$("div.main").fadeOut(400);
+	$("div.questions-wrap").fadeIn(400); // fade game in
+}
+
+// function increaseCount() { // track current question out of 10 total	
+// 	trackQuestion++; // add one for the user
+// 	$("span#track-questions").text(trackQuestion +1); 
+// }
+
+// function submitAnswer(lightQuestions) { 
+// 	$("li").click(function() {
+// 		var userGuess = $(this).text();	
+// 		var currentQuestion = lightQuestions[trackQuestion]; // display first question, then increment trackQuestion by 1 to grab next question
+// 		//console.log("before if", trackQuestion);
+// 		if (userGuess === currentQuestion.answers[currentQuestion.correct]) { // if userGuess equals the correct answer, do the following
+// 			console.log("after if", trackQuestion);
+// 			$("i.fa-check, p.correct-notify").show(); //show "yes!" and check-mark
+// 			countCorrect++; // increase number of correct answers	
+// 		} else { 
+// 			$("i.fa-check, p.correct-notify").hide();
+// 			$("i.fa-times, p.wrong-notify").show(); // show "nope!" and "x"
+// 		} 
+// 		function nextQuestion() { // move to next question
+// 			increaseCount(); // increaseCount() should go before generateQuestion so that the value being passed in to trackQuestion has already been increased
+// 			$("i.fa-check, i.fa-times, p.correct-notify, p.wrong-notify").hide();
+// 			generateQuestion(lightQuestions[trackQuestion]); //passes lightQuestions or darkQuestions through here
+// 		}
+// 		// move to next questions
+// 		if (trackQuestion < 9) {  
+// 			setTimeout(nextQuestion, 900); 
+// 		} else {
+// 			$("div.questions-wrap").fadeOut(400);
+// 			$("div.try-again-wrap").fadeIn(400);
+// 			$("i.fa-check, p.correct-notify").hide(); // fixes bug at startOver
+// 			$("i.fa-times, p.wrong-notify").hide(); // fixes bug at startOver
+// 			//startOver();
+// 		}
+// 	});
+// }
+
+function startOver() {
+	$("span#final-score").text(countCorrect);
+	$("div.questions-wrap").fadeOut(400);
+	$("div.try-again-wrap").fadeIn(400);
+	$("i.fa-check, p.correct-notify").hide(); // fixes bug at startOver
+	$("i.fa-times, p.wrong-notify").hide(); // fixes bug at startOver
+	$(".try-again").click(function() {
+		showIntro();
+		trackQuestion = 0;
+		questionTotal = 10;
+		countCorrect = 0;
+	$("span#track-questions").text(trackQuestion +1);
+	});	
+}
+
+function showIntro() {
+	$(".main").show();
+	$("img.light-sabers").show();
+	$("img.playericon-light, img.playericon-dark").hide();
+	$("div.try-again-wrap").hide();
+}
+
+
+
+
 
 
 
