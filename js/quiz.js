@@ -158,11 +158,13 @@ $(document).ready(function() {
 		//submitAnswer(darkQuestions);
 	});	
 
-	 $("ul.options-wrap li").on("click", function() { // generate light questions on click
+	 // when click on a question, do the following
+	 $("ul.options-wrap li").on("click", function() {
 	 	var userGuess = $(this).text();
 	 	var currentQuestion = lightQuestions[trackQuestion];
 	 	console.log(userGuess);
 
+	 	// if question is undefined or you're on question nine or more, show start over screen
 	 	if (!currentQuestion || trackQuestion > 9) {
 	 		startOver();
 	 		generateQuestion(lightQuestions[trackQuestion]);
@@ -171,17 +173,22 @@ $(document).ready(function() {
 
 	 	} else {
 
+	 		// if user guess equals the correct answer, add1 +1 to countCorrect, show "yep!" icon
 		 	if (userGuess === currentQuestion.answers[currentQuestion.correct]) {
 		 		countCorrect++;	
 		 		$("i.fa-check, p.correct-notify").show();
 
 		 	} else {
 
+		 		// show "nope!" icon
 		 		$("i.fa-check, p.correct-notify").hide();
 				$("i.fa-times, p.wrong-notify").show();
 		 	}
-		 	// show next array of questions
+
+		 	// ensures the proper array of questions is grabbed
 		 	trackQuestion++
+
+		 	// delay showing next queston by 900
 		 	setTimeout(function() {
 				generateQuestion(lightQuestions[trackQuestion]);
 				$("i.fa-check, i.fa-times, p.correct-notify, p.wrong-notify").hide();
