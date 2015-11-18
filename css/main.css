@@ -262,7 +262,7 @@ ul.options-wrap {
 
 .option1, .option2, .option3, .option4 {
 	background-color: #E6E6E6;
-	padding: 15px;
+	padding: 20px;
 	text-align: center;
 	font-size: 1.2em;
 	color: #ffffff;
@@ -293,6 +293,7 @@ ul.options-wrap {
 	margin: 0 auto;
 	margin-top: 350px;
 	width: 80%;
+	display: none;
 }
 
 input.try-again {

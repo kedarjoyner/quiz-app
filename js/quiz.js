@@ -7,7 +7,7 @@
 
 $(document).ready(function() {
 
-	$("div.questions-wrap, .main").hide();
+	$("div.questions-wrap").hide();
 
 	$("button.choose-light").mouseenter(function() { //when mouse hovers over light button, toggle
 		$("button.choose-light img").hide();
@@ -54,7 +54,6 @@ $(document).ready(function() {
 		submitAnswer(darkQuestions);
 	});
 
-	//$("p.final-score").text("You got " + countCorrect " out of 10 correct! Try again?").css("color", "black");
 });
 
 
@@ -86,7 +85,7 @@ function increaseCount() { // track current question out of 10 total
 	if (trackQuestion <= 10) {
 		trackQuestion++; // add one for the user
 		$("span#track-questions").text(trackQuestion +1); 
-	} else if (trackQuestion > 10) {
+	} else if (trackQuestion > QuestionAsk.length) {
 		$("div.questions-wrap").fadeOut(400);
 		$("div.try-again-wrap").fadeIn(400);
 	}
@@ -98,11 +97,12 @@ function submitAnswer(lightQuestions) {
 		var currentQuestion = lightQuestions[trackQuestion]; // display first question, then increment trackQuestion by 1 to grab next question
 		if (userGuess === currentQuestion.answers[currentQuestion.correct]) { // if userGuess equals the correct answer, do the following
 			$("i.fa-check, p.correct-notify").show(); //show "yes!" and check-mark
-			countCorrect++; // increase number of correct answers		
+			countCorrect++; // increase number of correct answers	
+			console.log(countCorrect);	
 		} else { 
 			$("i.fa-check, p.correct-notify").hide();
 			$("i.fa-times, p.wrong-notify").show(); // show "nope!" and "x"
-			console.log ("You've got " + countCorrect + " out of 10 questions right");
+			console.log(countCorrect);
 		} 
 
 		function nextQuestion() { // move to next question
@@ -114,6 +114,17 @@ function submitAnswer(lightQuestions) {
 
 		setTimeout(nextQuestion, 900); // move to next questions
 	});
+}
+
+function startOver() {
+	$("span#final-score").text(countCorrect);
+	$(".try-again").click(function() {
+		//alert("Test!");
+	});
+	showGame();
+	var trackQuestion = 0;
+	var questionTotal = 10;
+	var countCorrect = 0;
 }
 
 
