@@ -125,7 +125,17 @@ h3 {
 	margin-bottom: 50px;
 }
 
-.correct-notify, .wrong-notify {
+.correct-notify {
+	font-size: 1em;
+	font-weight: 700;
+	margin-bottom: -15px;
+	text-transform: uppercase;
+	color: #6DB045;
+	display: none;
+}
+
+.wrong-notify {
+	color: #ED3044;
 	font-size: 1em;
 	font-weight: 700;
 	margin-bottom: -15px;
@@ -274,6 +284,25 @@ ul.options-wrap {
 	background-color: #5c7ee5;
 }
 
+.try-again-wrap {
+	text-align: center;
+}
+
+input.try-again {
+ padding: 25px 80px;
+ margin-bottom: 50px;
+ font-size: 1.5em;
+ font-weight: 600;
+ color: #ffffff;
+ text-transform: uppercase;
+ background-color: #5c7ee5;
+ border: none;
+
+}
+
+input:hover {
+	opacity: .8r;
+}
 
 
 

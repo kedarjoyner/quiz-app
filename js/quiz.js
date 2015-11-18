@@ -7,7 +7,7 @@
 
 $(document).ready(function() {
 
-	$(".questions-wrap").hide();
+	$("div.questions-wrap").hide();
 
 	$("button.choose-light").mouseenter(function() { //when mouse hovers over light button, toggle
 		$("button.choose-light img").hide();
@@ -31,8 +31,8 @@ $(document).ready(function() {
 
 	$("button.choose-light").click(function() { // when game starts, switch player icon to light
 		showGame();
-		$(".light-sabers").hide(); //hide player icon
-		$(".playericon-light").slideToggle(300, "easeInQuint"); //change player icon to leah
+		$("img.light-sabers").hide(); //hide player icon
+		$("img.playericon-light").slideToggle(300, "easeInQuint"); //change player icon to leah
 		$("li").addClass("options-light-background"); // change color of list items
 		$("li").hover(function() { //change color of list items on hover
 			$(this).toggleClass("options-hover");
@@ -43,9 +43,9 @@ $(document).ready(function() {
 
 	$("button.choose-dark").click(function() { 
 		showGame();
-		$(".questions-wrap").show();
-		$(".light-sabers").hide();
-		$(".playericon-dark").slideToggle(300, "easeInQuint");
+		$("div.questions-wrap").show();
+		$("img.light-sabers").hide();
+		$("img.playericon-dark").slideToggle(300, "easeInQuint");
 		$("li").addClass("options-dark-background");
 		$("li").hover(function() {
 			$(this).toggleClass("options-hover");
@@ -53,18 +53,20 @@ $(document).ready(function() {
 		generateQuestion(darkQuestions[0]);
 		submitAnswer(darkQuestions);
 	});
+
+	//$("p.final-score").text("You got " + countCorrect " out of 10 correct! Try again?").css("color", "black");
 });
 
 
-// -------> FUNCTION <------ //
+// -------> FUNCTIONS <------ //
 
 
 function generateQuestion(currentQuestion) { // shows new questions
-	$(".question").text(currentQuestion.question);
-	$(".option1").text(currentQuestion.answers[0]);
-	$(".option2").text(currentQuestion.answers[1]);
-	$(".option3").text(currentQuestion.answers[2]);
-	$(".option4").text(currentQuestion.answers[3]);
+	$("p.question").text(currentQuestion.question);
+	$("li.option1").text(currentQuestion.answers[0]);
+	$("li.option2").text(currentQuestion.answers[1]);
+	$("li.option3").text(currentQuestion.answers[2]);
+	$("li.option4").text(currentQuestion.answers[3]);
 }
 
 
@@ -77,7 +79,7 @@ function QuestionAsk(question, answers, correct) { // objects that hold question
 
 function showGame() { 
 	$("div.main").fadeOut(400);
-	$(".questions-wrap").fadeIn(400); // fade game in
+	$("div.questions-wrap").fadeIn(400); // fade game in
 }
 
 function increaseCount() { // track current question out of 10 total	
@@ -85,7 +87,8 @@ function increaseCount() { // track current question out of 10 total
 		trackQuestion++; // add one for the user
 		$("span#track-questions").text(trackQuestion +1); 
 	} else if (trackQuestion > 10) {
-		// startOver();
+		$("div.questions-wrap").fadeOut(400);
+		$("div.try-again-wrap").fadeIn(400);
 	}
 }
 
@@ -93,27 +96,24 @@ function submitAnswer(lightQuestions) {
 	$("li").click(function() {
 		var userGuess = $(this).text();	
 		var currentQuestion = lightQuestions[trackQuestion]; // display first question, then increment trackQuestion by 1 to grab next question
-		console.log(currentQuestion);
 		if (userGuess === currentQuestion.answers[currentQuestion.correct]) { // if userGuess equals the correct answer, do the following
-			$(".fa-check, .correct-notify").show().css("color", "#6DB045");
+			$("i.fa-check, p.correct-notify").show(); //show "yes!" and check-mark
 			countCorrect++; // increase number of correct answers		
 		} else { 
-			$(".fa-check, .correct-notify").hide();
-			$(".fa-times, .wrong-notify").show().css("color", "#ED3044");
+			$("i.fa-check, p.correct-notify").hide();
+			$("i.fa-times, p.wrong-notify").show(); // show "nope!" and "x"
 			console.log ("You've got " + countCorrect + " out of 10 questions right");
 		} 
 
 		function nextQuestion() { // move to next question
 			increaseCount(); // increaseCount() should go before generateQuestion so that the value being passed in to trackQuestion has already been increased
-			$(".fa-check, .fa-times, .correct-notify, .wrong-notify").hide();
+			$("i.fa-check, i.fa-times, p.correct-notify, p.wrong-notify").hide();
 			generateQuestion(lightQuestions[trackQuestion]); //passes lightQuestions or darkQuestions through here
-			$(".questions-wrap").hide().fadeIn(600);	
-		}
+			$("div.questions-wrap").hide().fadeIn(600);	
+		}	
 
-		setTimeout(nextQuestion, 1000); // move to next questions
-		
+		setTimeout(nextQuestion, 900); // move to next questions
 	});
-
 }
 
 
