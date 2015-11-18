@@ -95,6 +95,10 @@ h1 {
 	margin-top: 50px;
 }
 
+h2 {
+	margin-bottom: 50px;
+}
+
 .question {
 	font-size: 1.5em;
 	margin: 0 auto;
@@ -286,6 +290,9 @@ ul.options-wrap {
 
 .try-again-wrap {
 	text-align: center;
+	margin: 0 auto;
+	margin-top: 350px;
+	width: 80%;
 }
 
 input.try-again {
@@ -301,7 +308,7 @@ input.try-again {
 }
 
 input:hover {
-	opacity: .8r;
+	opacity: .8;
 }
 
 

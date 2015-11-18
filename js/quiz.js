@@ -7,7 +7,7 @@
 
 $(document).ready(function() {
 
-	$("div.questions-wrap").hide();
+	$("div.questions-wrap, .main").hide();
 
 	$("button.choose-light").mouseenter(function() { //when mouse hovers over light button, toggle
 		$("button.choose-light img").hide();
