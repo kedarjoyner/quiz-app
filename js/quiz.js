@@ -82,13 +82,8 @@ function showGame() {
 }
 
 function increaseCount() { // track current question out of 10 total	
-	if (trackQuestion <= 10) {
-		trackQuestion++; // add one for the user
-		$("span#track-questions").text(trackQuestion +1); 
-	} else if (trackQuestion > QuestionAsk.length) {
-		$("div.questions-wrap").fadeOut(400);
-		$("div.try-again-wrap").fadeIn(400);
-	}
+	trackQuestion++; // add one for the user
+	$("span#track-questions").text(trackQuestion +1); 
 }
 
 function submitAnswer(lightQuestions) { 
@@ -109,22 +104,36 @@ function submitAnswer(lightQuestions) {
 			increaseCount(); // increaseCount() should go before generateQuestion so that the value being passed in to trackQuestion has already been increased
 			$("i.fa-check, i.fa-times, p.correct-notify, p.wrong-notify").hide();
 			generateQuestion(lightQuestions[trackQuestion]); //passes lightQuestions or darkQuestions through here
-			$("div.questions-wrap").hide().fadeIn(600);	
-		}	
+			//$("div.questions-wrap").hide().fadeIn(600);	
+		}
 
-		setTimeout(nextQuestion, 900); // move to next questions
+		// move to next questions
+		if (trackQuestion < 9) { 
+			setTimeout(nextQuestion, 900); 
+		} else {
+			$("div.questions-wrap").fadeOut(400);
+			$("div.try-again-wrap").fadeIn(400);
+			startOver();
+		}
 	});
 }
 
 function startOver() {
 	$("span#final-score").text(countCorrect);
 	$(".try-again").click(function() {
-		//alert("Test!");
-	});
-	showGame();
-	var trackQuestion = 0;
-	var questionTotal = 10;
-	var countCorrect = 0;
+		showIntro();
+		trackQuestion = 0;
+		questionTotal = 10;
+		countCorrect = 0;
+		$("span#track-questions").text(trackQuestion +1);
+	});	
+}
+
+function showIntro() {
+	$(".main").show();
+	$("img.light-sabers").show();
+	$("img.playericon-light, img.playericon-dark").hide();
+	$("div.try-again-wrap").hide();
 }
 
 
