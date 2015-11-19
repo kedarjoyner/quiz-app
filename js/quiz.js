@@ -115,6 +115,7 @@ $(document).ready(function() {
 
 	// -------> IF CHOOSE LIGHT <------ //
 
+
 	// if choose light, start game
 	 $("button.choose-light").click(function() { 
 	 	showGame();
@@ -175,7 +176,7 @@ $(document).ready(function() {
 	});	
 
 
-	 // -------> SUBMIT ANSWER <------ //
+	 // -------> ON CLICK OF LIGHT OR DARK BUTTON <------ //
 
 	 // when click on a question, do the following
 	 $("ul.options-wrap li").on("click", function() {
@@ -184,7 +185,7 @@ $(document).ready(function() {
 	 	console.log(userGuess);
 
 	 	// if question is undefined or you're on question nine or more, show start over screen
-	 	if (!currentQuestion || trackQuestion > 9) {
+	 	if (!currentQuestion) {
 	 		startOver();
 	 		generateQuestion(currentQuestions[trackQuestion]);
 				$("i.fa-check, i.fa-times, p.correct-notify, p.wrong-notify").hide();
@@ -222,7 +223,7 @@ $(document).ready(function() {
 
 
 function generateQuestion(currentQuestion) { // shows new questions
-	if (!currentQuestion || trackQuestion > 9) {
+	if (!currentQuestion) {
 		startOver();
 	} else { 
 

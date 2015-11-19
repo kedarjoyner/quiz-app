@@ -42,7 +42,7 @@ ul > li {
 	margin: 0 auto;
 	text-align: center;
 	padding-top: 300px;
-	width: 60%;
+	width: 75%;
 	margin-top: -40px;
 }
 
@@ -102,14 +102,14 @@ h2 {
 .question {
 	font-size: 1.5em;
 	margin: 0 auto;
-	width: 80%;
+	/*width: 100%;*/
 	margin-top: -50px;
 	margin-bottom: 20px;
 }
 
 
 #quiz-question-wrap {
-	width: 70%;
+	width: 75%;
 	text-align: center;
 	margin: 0 auto;
 	margin-top: 350px;
@@ -244,6 +244,8 @@ h3 {
 .options-wrap { /* add other browsers*/
 	width: 100%;
 	max-width: 1000px;
+	height: auto;
+	flex-wrap: wrap;
 	  display: -webkit-flex;
 	display: flex;
 	  -webkit-flex-flow: row wrap;
@@ -261,6 +263,10 @@ ul.options-wrap {
 }
 
 .option1, .option2, .option3, .option4 {
+	flex-grow: 1;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 	background-color: #E6E6E6;
 	padding: 20px;
 	text-align: center;
