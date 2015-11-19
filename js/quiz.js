@@ -72,6 +72,7 @@ darkQuestions[9] = new QuestionAsk("Who cut off Anakin Skywalker’s arm during 
 
 	
 var trackQuestion = 0;
+var currentQuestions; // hold which list is picked
 var questionTotal = 10;
 var countCorrect = 0; //creat function for this
 
@@ -95,7 +96,7 @@ $(document).ready(function() {
 		$("button.choose-light img").show();
 		$("button.choose-light p").hide();
 	});
-	
+
 
 
 	// -------> IF CHOOSE LIGHT <------ //
@@ -124,7 +125,7 @@ $(document).ready(function() {
 			$(this).addClass("options-light-background");
 			$(this).removeClass("options-hover");
 		});
-
+		currentQuestions = lightQuestions;
 		//show question 1 of lightQuestions array
 		generateQuestion(lightQuestions[0]);	
 		//submitAnswer(lightQuestions);
@@ -154,23 +155,25 @@ $(document).ready(function() {
 			$(this).removeClass("options-hover");
 			$(this).addClass("options-dark-background");
 		});
+		currentQuestions = darkQuestions;
 		generateQuestion(darkQuestions[0]);
 		//submitAnswer(darkQuestions);
 	});	
 
 
 	 // -------> SUBMIT ANSWER <------ //
+	 
 
 	 // when click on a question, do the following
 	 $("ul.options-wrap li").on("click", function() {
 	 	var userGuess = $(this).text();
-	 	var currentQuestion = lightQuestions[trackQuestion];
+	 	var currentQuestion = currentQuestions[trackQuestion];
 	 	console.log(userGuess);
 
 	 	// if question is undefined or you're on question nine or more, show start over screen
 	 	if (!currentQuestion || trackQuestion > 9) {
 	 		startOver();
-	 		generateQuestion(lightQuestions[trackQuestion]);
+	 		generateQuestion(currentQuestions[trackQuestion]);
 				$("i.fa-check, i.fa-times, p.correct-notify, p.wrong-notify").hide();
 				$("span#track-questions").text(trackQuestion +1);
 
@@ -193,7 +196,7 @@ $(document).ready(function() {
 
 		 	// delay showing next queston by 900
 		 	setTimeout(function() {
-				generateQuestion(lightQuestions[trackQuestion]);
+				generateQuestion(currentQuestions[trackQuestion]);
 				$("i.fa-check, i.fa-times, p.correct-notify, p.wrong-notify").hide();
 				$("span#track-questions").text(trackQuestion +1);
 		 	}, 900); }
