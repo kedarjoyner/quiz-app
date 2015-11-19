@@ -110,7 +110,7 @@ $(document).ready(function() {
 		$("button.choose-dark img").show();
 		$("button.choose-dark p").hide();
 	});
-	
+
 
 	// -------> IF CHOOSE LIGHT <------ //
 
@@ -159,14 +159,14 @@ $(document).ready(function() {
 
 		// when mouse hovers over question, turn blue
 		$("li").mouseenter(function() {
-			$(this).removeClass("options-dark-background");
 			$(this).addClass("options-hover");
+			$(this).removeClass("options-dark-background");
 		});
 
 		// when mouse leaves question, turn red
 		$("li").mouseleave(function() {
-			//$(this).addClass("options-dark-background");
 			$(this).removeClass("options-hover");
+			$(this).addClass("options-dark-background");
 		});
 		generateQuestion(darkQuestions[0]);
 		//submitAnswer(darkQuestions);
