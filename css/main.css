@@ -127,6 +127,7 @@ h2 {
 h3 {
 	text-align: center;
 	margin-bottom: 50px;
+	margin-top: 50px;
 }
 
 .correct-notify {
@@ -241,7 +242,17 @@ h3 {
 	display: none;
 }
 
-.options-wrap { /* add other browsers*/
+.options-wrap {
+	margin: 0 auto;
+	text-align: center;
+	width: 75%;
+	color: #ffffff;
+	font-weight: 600;
+	position: relative;
+	margin-top: -30px;
+}
+
+/*.options-wrap { 
 	width: 100%;
 	max-width: 1000px;
 	height: auto;
@@ -253,16 +264,15 @@ h3 {
 	  -webkit-justify-content: center;
 	justify-content: center;
 	margin: 0 auto;
-	/*margin-top: 20px;*/
 	margin-bottom: 50px;
 	margin-top: -20px;
-}
+}*/
 
 ul.options-wrap {
 	padding-left: 0;
 }
 
-.option1, .option2, .option3, .option4 {
+/*.option1, .option2, .option3, .option4 {
 	flex-grow: 1;
 	text-overflow: ellipsis;
 	overflow: hidden;
@@ -279,6 +289,44 @@ ul.options-wrap {
 	height: 125px;
 	margin: 5px;
 	cursor: pointer;
+}*/
+
+.options1 {
+	margin-right: 5px;
+}
+
+.options1 {
+	margin-left: 5px;
+}
+
+.option1, .option2 {
+	padding: 10px;
+	height: 130px;
+	display: inline-block;
+	width: 350px;
+	margin-top: 5px;
+	vertical-align: top;
+	line-height: 125px;
+}
+
+.option3, .option4 {
+	padding: 10px;
+	height: 130px;
+	display: inline-block;
+	width: 350px;
+	margin-top: 5px;
+	vertical-align: top;
+	line-height: 125px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.options3 {
+	margin-right: 5px;
+}
+
+.options4{
+	margin-left: 5px;
 }
 
 
@@ -290,9 +338,13 @@ ul.options-wrap {
 	background-color: #ED3044;
 }
 
-.options-hover {
+.options-light-background:hover, .options-dark-background:hover {
 	background-color: #5c7ee5;
 }
+
+/*.options-hover {
+	background-color: #5c7ee5;
+}*/
 
 .try-again-wrap {
 	text-align: center;
@@ -342,14 +394,14 @@ input:hover {
 }
 
 @media only screen and (max-width: 720px) {
-	.options-wrap {
+	/*.options-wrap {
 		-webkit-flex-flow: column wrap;
 	flex-flow: column wrap;
 	 -webkit-align-items: center; align-items: center;
-	}
+	}*/
 
 	.option1, .option2, .option3, .option4 {
-		width: 80%;
+		margin-left: -10px;
 	}
 }
 

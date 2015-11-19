@@ -6,7 +6,7 @@ var lightQuestions = new Array();
 lightQuestions[0] = new QuestionAsk("The Ewoks believe which character is God?", 
 		["C-3PO", "R2-D2", "Princess Leia", "Jar Jar Binks"], 0);
 
-lightQuestions[1] = new QuestionAsk("In 'The Empire Strikes Back', C-3PO is shot by a stormtrooper, torn to pieces, and thrown into the trash. Which character finds all of his parts just narrowing saving him from the incinerator?", 
+lightQuestions[1] = new QuestionAsk("In 'The Empire Strikes Back', C-3PO is shot by a stormtrooper, torn to pieces, and thrown into the trash. Which character finds all of his parts just narrowly saving him from the incinerator?", 
 		["Princess Leia", "Han Solo", "Chewbacca", "R2-D2"], 2);
 
 lightQuestions[2] = new QuestionAsk("In 'A New Hope' who does R2-D2 claim to be the property of?", 
@@ -49,7 +49,7 @@ darkQuestions[2] = new QuestionAsk("In 'Revenge of the Sith', who was the dark l
 	["Darth Tyrannus", "Darth Vader", "Darth Sidious", "Darth Plageuis"], 3);
 
 darkQuestions[3] = new QuestionAsk("In 'Return of the Jedi,' what are the first words Jabba the Hutt says?", 
-	["I told you not to admit him!", "A Jedi.", "You weak-minded fool! He’s using an old Jedi mind trick.", "Han Solo…"], 2);
+	["I told you not to admit him!", "A Jedi.", "He’s using an old Jedi mind trick!", "Han Solo…"], 2);
 
 darkQuestions[4] = new QuestionAsk("What group kidnapped Anakin Skywalker’s mother and later caused trouble for Luke Skywalker?", 
 	["The Sith", "The Jawas", "The Sand People", "Ewoks"], 2);
@@ -126,20 +126,9 @@ $(document).ready(function() {
 		//show player icon
 		$("img.playericon-light").slideToggle(300, "easeInQuint");
 
-		// add green background 
+		 // add green background 
 		$("li").addClass("options-light-background"); 
 
-		// when mouse hovers over question, turn blue
-		$("li").mouseenter(function() {
-			$(this).removeClass("options-light-background");
-			$(this).addClass("options-hover");
-		});
-
-		// when mouse leaves questions, turn green
-		$("li").mouseleave(function() {
-			$(this).addClass("options-light-background");
-			$(this).removeClass("options-hover");
-		});
 		currentQuestions = lightQuestions;
 		//show question 1 of lightQuestions array
 		generateQuestion(lightQuestions[0]);	
@@ -159,17 +148,6 @@ $(document).ready(function() {
 		$("img.playericon-dark").slideToggle(300, "easeInQuint");
 		$("li").addClass("options-dark-background"); 
 
-		// when mouse hovers over question, turn blue
-		$("li").mouseenter(function() {
-			$(this).addClass("options-hover");
-			$(this).removeClass("options-dark-background");
-		});
-
-		// when mouse leaves question, turn red
-		$("li").mouseleave(function() {
-			$(this).removeClass("options-hover");
-			$(this).addClass("options-dark-background");
-		});
 		currentQuestions = darkQuestions;
 		generateQuestion(darkQuestions[0]);
 		//submitAnswer(darkQuestions);
@@ -205,15 +183,20 @@ $(document).ready(function() {
 				$("i.fa-times, p.wrong-notify").show();
 		 	}
 
-		 	// ensures the proper array of questions is grabbed
-		 	trackQuestion++
+		 	// ensures the proper array of questions is grabbed, and doesn't go over 9
+		 if (trackQuestion < 9) {
+		 	trackQuestion++;
+
+		 } else {
+		 	startOver();
+		 }
 
 		 	// delay showing next queston by 900
 		 	setTimeout(function() {
 				generateQuestion(currentQuestions[trackQuestion]);
 				$("i.fa-check, i.fa-times, p.correct-notify, p.wrong-notify").hide();
 				$("span#track-questions").text(trackQuestion +1);
-		 	}, 900); }
+		 	}, 1000); }
 
 		});
 });
@@ -251,10 +234,12 @@ function showGame() {
 
 function startOver() {
 	$("span#final-score").text(countCorrect);
-	$("div.questions-wrap").fadeOut(400);
-	$("div.try-again-wrap").fadeIn(400);
+	$("div.questions-wrap").fadeOut(600);
+	$("div.try-again-wrap").fadeIn(600);
 	$("i.fa-check, p.correct-notify").hide(); // fixes bug at startOver
 	$("i.fa-times, p.wrong-notify").hide(); // fixes bug at startOver
+	$("li").removeClass("options-dark-background");
+	$("li").removeClass("options-light-background");
 	$(".try-again").click(function() {
 		showIntro();
 		trackQuestion = 0;
