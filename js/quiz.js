@@ -166,11 +166,14 @@ $(document).ready(function() {
 		// when mouse leaves question, turn red
 		$("li").mouseleave(function() {
 			$(this).removeClass("options-hover");
-			$(this).addClass("options-dark-background");
+			$(this).Class("options-dark-background");
 		});
 		generateQuestion(darkQuestions[0]);
 		//submitAnswer(darkQuestions);
 	});	
+
+
+	 // -------> SUBMIT ANSWER <------ //
 
 	 // when click on a question, do the following
 	 $("ul.options-wrap li").on("click", function() {
@@ -242,6 +245,33 @@ function showGame() {
 	$("div.questions-wrap").fadeIn(400); // fade game in
 }
 
+
+
+function startOver() {
+	$("span#final-score").text(countCorrect);
+	$("div.questions-wrap").fadeOut(400);
+	$("div.try-again-wrap").fadeIn(400);
+	$("i.fa-check, p.correct-notify").hide(); // fixes bug at startOver
+	$("i.fa-times, p.wrong-notify").hide(); // fixes bug at startOver
+	$(".try-again").click(function() {
+		showIntro();
+		trackQuestion = 0;
+		questionTotal = 10;
+		countCorrect = 0;
+	$("span#track-questions").text(trackQuestion +1);
+	});	
+}
+
+function showIntro() {
+	$(".main").show();
+	$("img.light-sabers").show();
+	$("img.playericon-light, img.playericon-dark").hide();
+	$("div.try-again-wrap").hide();
+}
+
+
+
+
 // function increaseCount() { // track current question out of 10 total	
 // 	trackQuestion++; // add one for the user
 // 	$("span#track-questions").text(trackQuestion +1); 
@@ -277,33 +307,6 @@ function showGame() {
 // 		}
 // 	});
 // }
-
-function startOver() {
-	$("span#final-score").text(countCorrect);
-	$("div.questions-wrap").fadeOut(400);
-	$("div.try-again-wrap").fadeIn(400);
-	$("i.fa-check, p.correct-notify").hide(); // fixes bug at startOver
-	$("i.fa-times, p.wrong-notify").hide(); // fixes bug at startOver
-	$(".try-again").click(function() {
-		showIntro();
-		trackQuestion = 0;
-		questionTotal = 10;
-		countCorrect = 0;
-	$("span#track-questions").text(trackQuestion +1);
-	});	
-}
-
-function showIntro() {
-	$(".main").show();
-	$("img.light-sabers").show();
-	$("img.playericon-light, img.playericon-dark").hide();
-	$("div.try-again-wrap").hide();
-}
-
-
-
-
-
 
 
 
