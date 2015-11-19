@@ -95,21 +95,7 @@ $(document).ready(function() {
 		$("button.choose-light img").show();
 		$("button.choose-light p").hide();
 	});
-
-
-	// -------> DARK BUTTON <------ //
-
-	// when mouse hovers over dark button, show text
-	$("button.choose-dark").mouseenter(function() { 
-		$("button.choose-dark img").hide();
-		$("button.choose-dark p").show();
-	});
-
-	// when mouse hovers over dark button, show text
-	$("button.choose-dark").mouseleave(function() { 
-		$("button.choose-dark img").show();
-		$("button.choose-dark p").hide();
-	});
+	
 
 
 	// -------> IF CHOOSE LIGHT <------ //
@@ -244,7 +230,6 @@ function showGame() {
 	$("div.main").fadeOut(400);
 	$("div.questions-wrap").fadeIn(400); // fade game in
 }
-
 
 
 function startOver() {
