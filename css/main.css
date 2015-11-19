@@ -307,6 +307,9 @@ ul.options-wrap {
 	margin-top: 5px;
 	vertical-align: top;
 	line-height: 125px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
 }
 
 .option3, .option4 {
@@ -319,6 +322,7 @@ ul.options-wrap {
 	line-height: 125px;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	cursor: pointer;
 }
 
 .options3 {
