@@ -151,7 +151,7 @@ $(document).ready(function() {
 
 		// when mouse leaves question, turn red
 		$("li").mouseleave(function() {
-			$(this).addClass("options-dark-background");
+			//$(this).addClass("options-dark-background");
 			$(this).removeClass("options-hover");
 		});
 		generateQuestion(darkQuestions[0]);
@@ -173,7 +173,7 @@ $(document).ready(function() {
 
 	 	} else {
 
-	 		// if user guess equals the correct answer, add1 +1 to countCorrect, show "yep!" icon
+	 		// if user guess equals the correct answer, add +1 to countCorrect, show "yep!" icon
 		 	if (userGuess === currentQuestion.answers[currentQuestion.correct]) {
 		 		countCorrect++;	
 		 		$("i.fa-check, p.correct-notify").show();
