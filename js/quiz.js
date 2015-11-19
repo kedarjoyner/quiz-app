@@ -149,7 +149,7 @@ $(document).ready(function() {
 		$("li").addClass("options-dark-background"); 
 
 		currentQuestions = darkQuestions;
-		generateQuestion(darkQuestions[0]);
+		generateQuestion(currentQuestions[0]);
 		//submitAnswer(darkQuestions);
 	});	
 
@@ -159,15 +159,19 @@ $(document).ready(function() {
 	 // when click on a question, do the following
 	 $("ul.options-wrap li").on("click", function() {
 	 	var userGuess = $(this).text();
-	 	var currentQuestion = currentQuestions[trackQuestion];
-	 	console.log(userGuess);
+	 	var trackQuestionPlus1 = $("span#track-questions").text(trackQuestion +1);
+	 	if (trackQuestionPlus1 === 11) {
+	 		trackQuestionPlus1 = $("span#track-questions").text("10");
+	 	}
 
-	 	// if question is undefined or you're on question nine or more, show start over screen
+	 	var currentQuestion = currentQuestions[trackQuestion];
+
+	 	// if question is undefined, show start over screen
 	 	if (!currentQuestion) {
 	 		startOver();
 	 		generateQuestion(currentQuestions[trackQuestion]);
 				$("i.fa-check, i.fa-times, p.correct-notify, p.wrong-notify").hide();
-				$("span#track-questions").text(trackQuestion +1);
+				trackQuestionPlus1;
 
 	 	} else {
 
@@ -184,7 +188,7 @@ $(document).ready(function() {
 		 	}
 
 		 	// ensures the proper array of questions is grabbed, and doesn't go over 9
-		 if (trackQuestion < 9) {
+		 if (trackQuestion <= 9) {
 		 	trackQuestion++;
 
 		 } else {
@@ -195,7 +199,7 @@ $(document).ready(function() {
 		 	setTimeout(function() {
 				generateQuestion(currentQuestions[trackQuestion]);
 				$("i.fa-check, i.fa-times, p.correct-notify, p.wrong-notify").hide();
-				$("span#track-questions").text(trackQuestion +1);
+				trackQuestionPlus1;
 		 	}, 1000); }
 
 		});
@@ -255,6 +259,32 @@ function showIntro() {
 	$("img.playericon-light, img.playericon-dark").hide();
 	$("div.try-again-wrap").hide();
 }
+
+function hoverTouchUnstick() {
+  // Check if the device supports touch events
+  if('ontouchstart' in document.documentElement) {
+    // Loop through each stylesheet
+    for(var sheetI = document.styleSheets.length - 1; sheetI >= 0; sheetI--) {
+      var sheet = document.styleSheets[sheetI];
+      // Verify if cssRules exists in sheet
+      if(sheet.cssRules) {
+        // Loop through each rule in sheet
+        for(var ruleI = sheet.cssRules.length - 1; ruleI >= 0; ruleI--) {
+          var rule = sheet.cssRules[ruleI];
+          // Verify rule has selector text
+          if(rule.selectorText) {
+            // Replace hover psuedo-class with active psuedo-class
+            rule.selectorText = rule.selectorText.replace(":hover", ":active");
+          }
+        }
+      }
+    }
+  }
+}
+hoverTouchUnstick();
+
+
+
 
 
 
