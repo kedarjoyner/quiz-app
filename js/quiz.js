@@ -63,7 +63,7 @@ darkQuestions[6] = new QuestionAsk("In 'The Phantom Menace,' which Jedi Knight d
 darkQuestions[7] = new QuestionAsk("What does AT-AT stand for?", 
 	["Automotive Transport Attack Tank", "Attack Terrain Armoured Transport", "All Terrain Armoured Transport", "All Turtles Attack Tacos"], 2);
 
-darkQuestions[8] = new QuestionAsk("Who was the first Dark Side users?", 
+darkQuestions[8] = new QuestionAsk("Although there's some debate, who are considered to be the first Dark Side users?", 
 	["The Sith", "The Celestials", "The Brotherhood of Darkness", "The Coulmi"], 1);
 
 darkQuestions[9] = new QuestionAsk("Who cut off Anakin Skywalker’s arm during a fight?", 
@@ -260,70 +260,10 @@ function showIntro() {
 	$("div.try-again-wrap").hide();
 }
 
-function hoverTouchUnstick() {
-  // Check if the device supports touch events
-  if('ontouchstart' in document.documentElement) {
-    // Loop through each stylesheet
-    for(var sheetI = document.styleSheets.length - 1; sheetI >= 0; sheetI--) {
-      var sheet = document.styleSheets[sheetI];
-      // Verify if cssRules exists in sheet
-      if(sheet.cssRules) {
-        // Loop through each rule in sheet
-        for(var ruleI = sheet.cssRules.length - 1; ruleI >= 0; ruleI--) {
-          var rule = sheet.cssRules[ruleI];
-          // Verify rule has selector text
-          if(rule.selectorText) {
-            // Replace hover psuedo-class with active psuedo-class
-            rule.selectorText = rule.selectorText.replace(":hover", ":active");
-          }
-        }
-      }
-    }
-  }
-}
-hoverTouchUnstick();
 
 
 
 
-
-
-
-// function increaseCount() { // track current question out of 10 total	
-// 	trackQuestion++; // add one for the user
-// 	$("span#track-questions").text(trackQuestion +1); 
-// }
-
-// function submitAnswer(lightQuestions) { 
-// 	$("li").click(function() {
-// 		var userGuess = $(this).text();	
-// 		var currentQuestion = lightQuestions[trackQuestion]; // display first question, then increment trackQuestion by 1 to grab next question
-// 		//console.log("before if", trackQuestion);
-// 		if (userGuess === currentQuestion.answers[currentQuestion.correct]) { // if userGuess equals the correct answer, do the following
-// 			console.log("after if", trackQuestion);
-// 			$("i.fa-check, p.correct-notify").show(); //show "yes!" and check-mark
-// 			countCorrect++; // increase number of correct answers	
-// 		} else { 
-// 			$("i.fa-check, p.correct-notify").hide();
-// 			$("i.fa-times, p.wrong-notify").show(); // show "nope!" and "x"
-// 		} 
-// 		function nextQuestion() { // move to next question
-// 			increaseCount(); // increaseCount() should go before generateQuestion so that the value being passed in to trackQuestion has already been increased
-// 			$("i.fa-check, i.fa-times, p.correct-notify, p.wrong-notify").hide();
-// 			generateQuestion(lightQuestions[trackQuestion]); //passes lightQuestions or darkQuestions through here
-// 		}
-// 		// move to next questions
-// 		if (trackQuestion < 9) {  
-// 			setTimeout(nextQuestion, 900); 
-// 		} else {
-// 			$("div.questions-wrap").fadeOut(400);
-// 			$("div.try-again-wrap").fadeIn(400);
-// 			$("i.fa-check, p.correct-notify").hide(); // fixes bug at startOver
-// 			$("i.fa-times, p.wrong-notify").hide(); // fixes bug at startOver
-// 			//startOver();
-// 		}
-// 	});
-// }
 
 
 
