@@ -87,11 +87,17 @@ $(document).ready(function() {
 		$("button.choose-light p").show();
 	});
 
+
+	// -------> LIGHT BUTTON <------ //
+
 	// when mouse hovers over light button, show icon
 	$("button.choose-light").mouseleave(function() {
 		$("button.choose-light img").show();
 		$("button.choose-light p").hide();
 	});
+
+
+	// -------> DARK BUTTON <------ //
 
 	// when mouse hovers over dark button, show text
 	$("button.choose-dark").mouseenter(function() { 
@@ -104,6 +110,9 @@ $(document).ready(function() {
 		$("button.choose-dark img").show();
 		$("button.choose-dark p").hide();
 	});
+	
+
+	// -------> IF CHOOSE LIGHT <------ //
 
 	// if choose light, start game
 	 $("button.choose-light").click(function() { 
@@ -134,6 +143,11 @@ $(document).ready(function() {
 		generateQuestion(lightQuestions[0]);	
 		//submitAnswer(lightQuestions);
 	});
+
+
+// -------> IF CHOOSE DARK <------ //
+
+
 
 	// if choose dark, start game
 	 $("button.choose-dark").click(function() { 
