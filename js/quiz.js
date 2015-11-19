@@ -6,29 +6,29 @@ var lightQuestions = new Array();
 lightQuestions[0] = new QuestionAsk("The Ewoks believe which character is God?", 
 		["C-3PO", "R2-D2", "Princess Leia", "Jar Jar Binks"], 0);
 
-lightQuestions[1] = new QuestionAsk("In 'The Empire Strikes Back', C-3PO is shot by a stormtrooper, torn to pieces, and thrown into the trash. Which character finds all of his parts just narrowly saving him from the incinerator?", 
+lightQuestions[1] = new QuestionAsk("In 'The Empire Strikes Back,' C-3PO is shot by a stormtrooper, torn to pieces, and thrown into the trash. Which character finds all of C-3PO's parts just narrowly saving him from the incinerator?", 
 		["Princess Leia", "Han Solo", "Chewbacca", "R2-D2"], 2);
 
-lightQuestions[2] = new QuestionAsk("In 'A New Hope' who does R2-D2 claim to be the property of?", 
+lightQuestions[2] = new QuestionAsk("In 'A New Hope,' who does R2-D2 claim to be the property of?", 
 		["Captain Antillies", "Anakin Skywalker", 
 		"Luke Skywalker", "Obi-Wan Kenobi"], 3);
 
-lightQuestions[3] = new QuestionAsk("In 'Return of the Jedi', what does Princess Leia disguise herself as?", 
+lightQuestions[3] = new QuestionAsk("In 'Return of the Jedi,' what does Princess Leia disguise herself as?", 
 		["Wookie", "Storm Trooper", "Bounty Hunter", "Droid"], 2);
 
 lightQuestions[4] = new QuestionAsk("Which famous scientist’s eyes were Yoda’s based on?",
 		["Isaac Newton", "Sir Francis Bacon", "Albert Einstein", "Carl Sagan"], 2);
 
-lightQuestions[5] = new QuestionAsk("In 'The Empire Strikes Back' when Luke and Han are missing, what does R2-D2 say the odds of survival are?",
+lightQuestions[5] = new QuestionAsk("When Luke and Han go missing in 'The Empire Strikes Back,' what does R2-D2 say the odds of survival are?",
 		["1725 to 1", "725 to 1", "372 to 1", "3720 to 1"], 1);
 
-lightQuestions[6] = new QuestionAsk("Which of these names belonged to an Ewok in 1983’s 'Return of the Jedi?'",
+lightQuestions[6] = new QuestionAsk("Which of these names belonged to an Ewok in 1983’s 'Return of the Jedi'?",
 		["Snootles", "Woola", "Nikta", "Teebo"], 3);
 
 lightQuestions[7] = new QuestionAsk("Who eventually had the honor of killing Jabba the Hutt?",
 		["Leia", "Han Solo", "Boba Fett", "Chewbacca"], 0);
 
-lightQuestions[8] = new QuestionAsk("When he was cast as Jedi Knight Mace Windu, Samuel L. Jackson’s special request was that his light saber was which color?", 
+lightQuestions[8] = new QuestionAsk("When he was cast as Jedi Knight Mace Windu, Samuel L. Jackson requested that his lightsaber was which color?", 
 		["White", "Purple", "Orange", "Yellow"], 1);
 
 lightQuestions[9] = new QuestionAsk("What is Jedi leader Obi-Wan Kenobi also known as?", 
@@ -39,7 +39,7 @@ lightQuestions[9] = new QuestionAsk("What is Jedi leader Obi-Wan Kenobi also kno
 
 var darkQuestions = new Array();
 
-darkQuestions[0] = new QuestionAsk("In 'The Empire Strikes Back', what was the name of the Rebel base on the ice world of Hoth?", 
+darkQuestions[0] = new QuestionAsk("In 'The Empire Strikes Back,' what was the name of the Rebel base on the ice world of Hoth?", 
 	["The Cave", "Echo Base", "Zone 12", "Man Hothma"], 1);
 
 darkQuestions[1] = new QuestionAsk("What are the two braids on Boba Fett’s shoulder from?", 
