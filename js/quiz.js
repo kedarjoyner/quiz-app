@@ -82,19 +82,33 @@ $(document).ready(function() {
 	// hide questions from user
 	$("div.questions-wrap").hide();
 
+	// -------> LIGHT BUTTON HOVER <------ //
+
 	// when mouse hovers over light button, show text
 	$("button.choose-light").mouseenter(function() { 
 		$("button.choose-light img").hide();
 		$("button.choose-light p").show();
 	});
 
-
-	// -------> LIGHT BUTTON <------ //
-
 	// when mouse hovers over light button, show icon
 	$("button.choose-light").mouseleave(function() {
-		$("button.choose-light img").show();
 		$("button.choose-light p").hide();
+		$("button.choose-light img").show();
+
+	});
+
+	// -------> DARK BUTTON HOVER <------ //
+
+	// when mouse hovers over light button, show text
+	$("button.choose-dark").mouseenter(function() { 
+		$("button.choose-dark img").hide();
+		$("button.choose-dark p").show();
+	});
+
+	$("button.choose-dark").mouseleave(function() {
+		$("button.choose-dark p").hide();
+		$("button.choose-dark img").show();
+		
 	});
 
 
@@ -162,7 +176,6 @@ $(document).ready(function() {
 
 
 	 // -------> SUBMIT ANSWER <------ //
-	 
 
 	 // when click on a question, do the following
 	 $("ul.options-wrap li").on("click", function() {
