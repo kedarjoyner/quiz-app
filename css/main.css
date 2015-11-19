@@ -203,12 +203,12 @@ h3 {
 	text-align: center;
 }
 
-.choose-light:hover {
+.no-touch .choose-light:hover {
 	background-color: #5c7ee5;
 
 }
 
-.choose-dark:hover {
+.no-touch .choose-dark:hover {
 	background-color: #5c7ee5;
 }
 
