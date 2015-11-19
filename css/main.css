@@ -16,9 +16,9 @@
 
 /* -- GENERAL -- */
 
-/**, body {
+*, body {
 	border: 1px solid black;
-}*/
+}
 
 body {
 	font-family: 'Open Sans', sans-serif;
@@ -245,7 +245,8 @@ h3 {
 .options-wrap {
 	margin: 0 auto;
 	text-align: center;
-	width: 75%;
+	min-width: 75%;
+	max-width: 1000px;
 	color: #ffffff;
 	font-weight: 600;
 	position: relative;
@@ -270,6 +271,7 @@ h3 {
 
 ul.options-wrap {
 	padding-left: 0;
+	margin: 0 auto;
 }
 
 /*.option1, .option2, .option3, .option4 {
@@ -397,18 +399,17 @@ input:hover {
 	
 }
 
-@media only screen and (max-width: 720px) {
+/*@media only screen and (max-width: 720px) {
 	/*.options-wrap {
 		-webkit-flex-flow: column wrap;
 	flex-flow: column wrap;
 	 -webkit-align-items: center; align-items: center;
-	}*/
+	}
 
 	.option1, .option2, .option3, .option4 {
-		margin-left: -10px;
+		width: 75%;
 	}
-}
-
+}*/
 
 
 
