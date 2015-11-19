@@ -166,7 +166,7 @@ $(document).ready(function() {
 		// when mouse leaves question, turn red
 		$("li").mouseleave(function() {
 			$(this).removeClass("options-hover");
-			$(this).Class("options-dark-background");
+			$(this).addClass("options-dark-background");
 		});
 		generateQuestion(darkQuestions[0]);
 		//submitAnswer(darkQuestions);
