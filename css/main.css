@@ -406,6 +406,23 @@ input:hover {
 
 	.option1, .option2, .option3, .option4 {
 		width: 100%;
+		height: 80px;
+		line-height: 80px;
+		margin-left: -10px;
+	}
+
+	.options-wrap {
+		font-size: 1em;
+	}
+
+	p.question {
+		font-size: 1.2em;
+	}
+
+	.right-wrong-icons {
+
+		margin-top: -10px;
+		margin-bottom: -10px;
 	}
 }
 
