@@ -302,8 +302,8 @@ ul.options-wrap {
 .option1, .option2 {
 	padding: 10px;
 	height: 130px;
-	display: inline-block;
 	width: 350px;
+	display: inline-block;
 	margin-top: 5px;
 	vertical-align: top;
 	line-height: 125px;
@@ -315,8 +315,8 @@ ul.options-wrap {
 .option3, .option4 {
 	padding: 10px;
 	height: 130px;
-	display: inline-block;
 	width: 350px;
+	display: inline-block;
 	margin-top: 5px;
 	vertical-align: top;
 	line-height: 125px;
@@ -397,15 +397,15 @@ input:hover {
 	
 }
 
-/*@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 670px) {
 	/*.options-wrap {
 		-webkit-flex-flow: column wrap;
 	flex-flow: column wrap;
 	 -webkit-align-items: center; align-items: center;
-	}
+	}*/
 
 	.option1, .option2, .option3, .option4 {
-		max-width: 75%;
+		width: 70%;
 	}
 }
 
