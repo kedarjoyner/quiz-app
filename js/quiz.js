@@ -61,7 +61,7 @@ darkQuestions[6] = new QuestionAsk("In 'The Phantom Menace,' which Jedi Knight d
 	["Qui-Gon Jinn", "Mace Windu", "Ki-Adi-Mundi", "Saesee Tin"], 0);
 
 darkQuestions[7] = new QuestionAsk("What does AT-AT stand for?", 
-	["Automotive Transport Attack Tank", "Attack Terrain Armoured Transport", "All Terrain Armoured Transport", "All Turtles Attack Tacos"], 1);
+	["Automotive Transport Attack Tank", "Attack Terrain Armoured Transport", "All Terrain Armoured Transport", "All Turtles Attack Tacos"], 2);
 
 darkQuestions[8] = new QuestionAsk("Who was the first Dark Side users?", 
 	["The Sith", "The Celestials", "The Brotherhood of Darkness", "The Coulmi"], 1);
